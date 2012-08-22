@@ -12,3 +12,12 @@ end
 def hide_markdown(item)
   item.sub(MD_LIST_ITEM, "")
 end
+
+def compare_sorted_items(item1, item2)
+  item1 = item1.to_i
+  item2 = item2.to_i
+  return nil if(item1 == 0 or item2 == 0)
+  return -1 if(item2 > item1)
+  return 1 if(item1 > item2)
+  0
+end

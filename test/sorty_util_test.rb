@@ -16,4 +16,13 @@ class SortyUtilTest < MiniTest::Unit::TestCase
     assert_equal "unsorted item", hide_markdown("* unsorted item")
     assert_equal "funky * item with 99. junk", hide_markdown("* funky * item with 99. junk")
   end
+
+  def test_compare_sorted_items
+    assert_equal(1, compare_sorted_items("99. bottles", "50. cents"))
+    assert_equal(-1, compare_sorted_items("1. lonliest number", "50. cents"))
+    assert_equal(0, compare_sorted_items("1. lonliest number", "1. The Only One"))
+    assert_equal(nil, compare_sorted_items("*. kleene", "*. twinkle twinkle"))
+    assert_equal(nil, compare_sorted_items("*. twinkle twinkle", "1. The Only One"))
+    assert_equal(nil, compare_sorted_items("99. bottles", "*. twinkle twinkle"))
+  end
 end

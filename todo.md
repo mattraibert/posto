@@ -1,7 +1,6 @@
 todo
 ----
 
-* if a user has already compared two items, don't ask again
 1. user can mark items as done
 2. mark items as due today
 3. mark items as quick
