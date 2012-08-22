@@ -1,17 +1,17 @@
 require 'highline/import'
+require 'sorty_util'
 
-def compare x, y
+def compare(x, y)
   while true do
-    puts "0. neither"
     puts "1. #{x}"
     puts "2. #{y}"
-    response = ask "type which one is more important (0,1 or 2): "
+    response = ask "type which one is more important (1, 2 or no entry if you don't care): "
     return 0 if response.to_i == 0
     return -1 if response.to_i == 1
     return 1 if response.to_i == 2
   end
 end
 
-items = IO.read("todo.md").split("\n").select{|line| /^\*/ =~ line }
+items = IO.read("todo.md").split("\n").select { |line| /^\*/ =~ line }
 items = items.sort { |x, y| compare x, y }
-puts items
+puts replace_stars_with_ordinal_numbers(items)
