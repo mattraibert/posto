@@ -12,6 +12,6 @@ def compare(x, y)
   end
 end
 
-items = IO.read("todo.md").split("\n").select { |line| /^\*/ =~ line }
+items = choose_item_lines(IO.read("todo.md").split("\n"))
 items = items.sort { |x, y| compare x, y }
 puts replace_stars_with_ordinal_numbers(items)
