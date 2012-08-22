@@ -1,14 +1,15 @@
 todo
 ----
 
-* display list of items from todo.md
-* user can specify file as cl param
-* humansort them
-* user can mark items as done
-* mark items as quick
-* mark items as due today
-* mark items as fun
-* add tasks to an item
+* automatically replace stars with ordinal numbers
+* if a user has already compared two items, don't ask again
+1. user can mark items as done
+2. mark items as due today
+3. mark items as quick
+4. mark items as fun
+5. add tasks to an item
 
 done
 ----
+* humansort them
+* display list of items from todo.md
