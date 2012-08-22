@@ -10,4 +10,10 @@ class SortyUtilTest < MiniTest::Unit::TestCase
   def test_choose_item_lines
     assert_equal(["99. bottles", "* unsorted item"], choose_item_lines(["TODO", "======", "99. bottles", "* unsorted item", "END", ""]))
   end
+
+  def test_hide_markdown
+    assert_equal "bottles", hide_markdown("99. bottles")
+    assert_equal "unsorted item", hide_markdown("* unsorted item")
+    assert_equal "funky * item with 99. junk", hide_markdown("* funky * item with 99. junk")
+  end
 end

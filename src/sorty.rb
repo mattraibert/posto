@@ -3,8 +3,8 @@ require 'sorty_util'
 
 def compare(x, y)
   while true do
-    puts "1. #{x}"
-    puts "2. #{y}"
+    puts "1. #{hide_markdown x}"
+    puts "2. #{hide_markdown y}"
     response = ask "type which one is more important (1, 2 or no entry if you don't care): "
     return 0 if response.to_i == 0
     return -1 if response.to_i == 1
