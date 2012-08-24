@@ -1,9 +1,11 @@
-
 todo
 ----
 
-1. user can mark items as done
-2. mark items as due today
-3. mark items as quick
-4. mark items as fun
-5. add tasks to an item
+1. mark done (delete item from todo list)
+2. unsort an item
+3. add a todo item
+4. mark due today
+5. mark quick
+6. mark fun
+7. add tasks to an item
+8. rename todo list

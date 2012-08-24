@@ -1,5 +1,6 @@
 require 'highline/import'
 require 'sorty_util'
+require 'todo_list_template'
 
 def ask_human_to_compare(x, y)
   while true do
@@ -12,14 +13,12 @@ def ask_human_to_compare(x, y)
   end
 end
 
-items = choose_item_lines(IO.read("todo.md").split("\n"))
-items = items.sort { |x, y| compare_sorted_items(x,y) or ask_human_to_compare(x, y) }
-items = replace_stars_with_ordinal_numbers(items)
-puts items
-IO.write("todo.md",
-         """
-todo
-----
+def main
+  items = choose_item_lines(IO.read("todo.md").split("\n"))
+  items = items.sort { |x, y| compare_sorted_items(x, y) or ask_human_to_compare(x, y) }
+  items = replace_stars_with_ordinal_numbers(items)
+  puts items
+  IO.write("todo.md", todo_list(items))
+end
 
-#{items.join("\n")}
-""")
+main
