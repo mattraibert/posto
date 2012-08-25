@@ -24,5 +24,3 @@ module Sorty
     end
   end
 end
-
-Sorty.main
