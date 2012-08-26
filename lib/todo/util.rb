@@ -1,4 +1,4 @@
-module Sorty
+module Todo
   module Util
     class << self
       MD_LIST_ITEM = /^(\*|\d+\.) /
