@@ -2,4 +2,4 @@
 
 require 'todo'
 
-Todo.main#(ARGV)
+Todo.main(ARGV)
