@@ -16,11 +16,7 @@ module Todo
       end
 
       def sort(items)
-        number_items(items.sort { |x, y| compare(x, y) })
-      end
-
-      def compare(x, y)
-        compare_sorted_items(x, y) or ask_human_to_compare(x, y)
+        number_items(items.sort { |x, y| compare_sorted_items(x, y) or ask_human_to_compare(x, y) })
       end
 
       def ask_human_to_compare(x, y)
