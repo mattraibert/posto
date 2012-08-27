@@ -4,7 +4,7 @@ module Todo
       MD_LIST_ITEM = /^(\*|\d+\.) /
 
       def replace_stars_with_ordinal_numbers (items)
-        items.each_with_index.map { |x, i| number(x, i + 1) }
+        items.each_with_index.map { |item, i| number(item, i + 1) }
       end
 
       def choose_item_lines(lines)
@@ -30,13 +30,21 @@ module Todo
         end
       end
 
-      def compare_sorted_items(item1, item2)
-        item1 = item1.to_i
-        item2 = item2.to_i
-        return nil if (item1 == 0 or item2 == 0)
-        return -1 if (item2 > item1)
-        return 1 if (item1 > item2)
+      def compare_sorted_items(x, y)
+        x = x.to_i
+        y = y.to_i
+        return nil if (x == 0 or y == 0)
+        return -1 if (y > x)
+        return 1 if (x > y)
         0
+      end
+
+      def starred_group(items)
+        items.select { |item| /^\* / =~ item }
+      end
+
+      def numbered_group(items)
+        items.select { |item| /^\d+\. / =~ item }
       end
 
       def star(item)

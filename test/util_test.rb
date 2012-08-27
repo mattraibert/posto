@@ -37,10 +37,20 @@ class UtilTest < MiniTest::Unit::TestCase
     assert_equal "99. cents", Todo::Util.number("50. cents", 99)
   end
 
+  def test_starred_group
+    assert_equal(["* card molly", "* this is another"],
+                 Todo::Util.starred_group(["* card molly", "* this is another", "1. this is one"]))
+  end
+
+  def test_numbered_group
+    assert_equal(["1. this is one"],
+                Todo::Util.numbered_group(["* card molly", "* this is another", "1. this is one"]))
+  end
+
   def pending_test_unsort
     assert_equal(["* card molly", "1. this is one", "2. this is another"],
-                 unsort(["1. this is one", "2. this is another", "3. card molly"], 3))
+                 Todo::Util.unsort(["1. this is one", "2. this is another", "3. card molly"], 3))
     assert_equal(["* card molly", "* this is another", "1. this is one"],
-                 unsort(["1. this is one", "2. this is another", "* card molly"], 2))
+                 Todo::Util.unsort(["1. this is one", "2. this is another", "* card molly"], 2))
   end
 end
