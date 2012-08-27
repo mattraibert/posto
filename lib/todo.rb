@@ -7,7 +7,8 @@ module Todo
   class << self
     def main(args)
       arguments = Arguments.new(args)
-      items = Todo::Util.choose_item_lines(IO.read(arguments.filename).split("\n"))
+      file = TodoFile.new(arguments)
+      items = Todo::Util.choose_item_lines(file.lines)
       case arguments.command
         when "sort"
           items = Todo::Util.sort(items)
@@ -19,7 +20,21 @@ module Todo
           print "Unsupported operation #{args.inspect}"
       end
       puts items
-      IO.write(arguments.filename, todo_list(items))
+      file.write(items)
+    end
+  end
+
+  class TodoFile
+    def initialize(arguments)
+      @filename = arguments.filename
+    end
+
+    def write(items)
+      IO.write(@filename, todo_list(items))
+    end
+
+    def lines
+      IO.read(@filename).split("\n")
     end
   end
 end
