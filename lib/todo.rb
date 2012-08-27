@@ -13,6 +13,8 @@ module Todo
           items = Todo::Util.sort(items)
         when "unsort"
           items = Todo::Util.unsort(items, item_number)
+        when "done"
+          items = Todo::Util.done(items, item_number)
         else
           print "Unsupported operation #{args.inspect}"
       end

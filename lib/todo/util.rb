@@ -59,6 +59,10 @@ module Todo
         item.sub MD_LIST_ITEM, "#{n}. "
       end
 
+      def done(items, n)
+        unsort(items, n)[0..-2]
+      end
+
       def unsort(items, n)
         item = items.delete_at(n - 1)
         numbered_group(items) + starred_group(items) + [star(item)]

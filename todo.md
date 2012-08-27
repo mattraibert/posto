@@ -1,12 +1,11 @@
 todo
 ----
 
-1. mark done (delete item from todo list)
-2. specify todo list
-3. add a todo item
-4. mark due today
-5. mark quick
-6. mark fun
-7. add tasks to an item
-8. display cl help message
-9. handle cl input errors
+1. specify todo list
+2. add a todo item
+3. mark due today
+4. mark quick
+5. mark fun
+6. add tasks to an item
+7. display cl help message
+8. handle cl input errors
