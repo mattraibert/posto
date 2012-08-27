@@ -9,6 +9,8 @@ module Todo
       case args[0]
         when nil
           items = Todo::Util.sort(items)
+        when "unsort"
+          items = Todo::Util.unsort(items, args[1].to_i)
         else
           print "Unsupported operation #{args.inspect}"
       end
