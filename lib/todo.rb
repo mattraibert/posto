@@ -9,7 +9,6 @@ module Todo
       case args[0]
         when nil
           items = Todo::Util.sort(items)
-          items = Todo::Util.replace_stars_with_ordinal_numbers(items)
         else
           print "Unsupported operation #{args.inspect}"
       end

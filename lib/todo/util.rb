@@ -3,7 +3,7 @@ module Todo
     class << self
       MD_LIST_ITEM = /^(\*|\d+\.) /
 
-      def replace_stars_with_ordinal_numbers (items)
+      def number_items(items)
         items.each_with_index.map { |item, i| number(item, i + 1) }
       end
 
@@ -16,17 +16,21 @@ module Todo
       end
 
       def sort(items)
-        items.sort { |x, y| compare_sorted_items(x, y) or ask_human_to_compare(x, y) }
+        number_items(items.sort { |x, y| compare(x, y) })
+      end
+
+      def compare(x, y)
+        compare_sorted_items(x, y) or ask_human_to_compare(x, y)
       end
 
       def ask_human_to_compare(x, y)
         while true do
           puts "1. #{hide_markdown x}"
           puts "2. #{hide_markdown y}"
-          response = ask "which one is more important? (1, 2 or just hit enter if you don't care): "
-          return 0 if response.to_i == 0
-          return -1 if response.to_i == 1
-          return 1 if response.to_i == 2
+          response = ask("which one is more important? (1, 2 or just hit enter if you don't care): ").to_i
+          return 0 if response == 0
+          return -1 if response == 1
+          return 1 if response == 2
         end
       end
 
@@ -44,7 +48,7 @@ module Todo
       end
 
       def numbered_group(items)
-        items.select { |item| /^\d+\. / =~ item }
+        sort items.select { |item| /^\d+\. / =~ item }
       end
 
       def star(item)

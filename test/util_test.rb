@@ -4,7 +4,7 @@ require 'todo/util'
 class UtilTest < MiniTest::Unit::TestCase
   def test_replace_stars
     assert_equal(["1. this is one", "2. this is another", "3. card molly"],
-                 Todo::Util.replace_stars_with_ordinal_numbers(["* this is one", "* this is another", "99. card molly"]))
+                 Todo::Util.number_items(["* this is one", "* this is another", "99. card molly"]))
   end
 
   def test_choose_item_lines
@@ -45,6 +45,8 @@ class UtilTest < MiniTest::Unit::TestCase
   def test_numbered_group
     assert_equal(["1. this is one"],
                 Todo::Util.numbered_group(["* card molly", "* this is another", "1. this is one"]))
+    assert_equal(["1. this is one", "2. card molly"],
+                Todo::Util.numbered_group(["3. card molly", "* this is another", "1. this is one"]))
   end
 
   def pending_test_unsort
