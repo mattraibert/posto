@@ -49,7 +49,9 @@ class UtilTest < MiniTest::Unit::TestCase
                 Todo::Util.numbered_group(["3. card molly", "* this is another", "1. this is one"]))
   end
 
-  def pending_test_unsort
+  def test_unsort
+    assert_equal(["* this is one", "1. this is another", "2. card molly"],
+                 Todo::Util.unsort(["1. this is one", "2. this is another", "3. card molly"], 1))
     assert_equal(["* card molly", "1. this is one", "2. this is another"],
                  Todo::Util.unsort(["1. this is one", "2. this is another", "3. card molly"], 3))
     assert_equal(["* card molly", "* this is another", "1. this is one"],
