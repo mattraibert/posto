@@ -8,7 +8,7 @@ class UtilTest < MiniTest::Unit::TestCase
   end
 
   def test_choose_item_lines
-    assert_equal(["99. bottles", "* unsorted item"], 
+    assert_equal(["99. bottles", "* unsorted item"],
                  Todo::Util.choose_item_lines(["TODO", "======", "99. bottles", "* unsorted item", "END", ""]))
   end
 
@@ -25,5 +25,22 @@ class UtilTest < MiniTest::Unit::TestCase
     assert_equal(nil, Todo::Util.compare_sorted_items("* kleene", "* twinkle twinkle"))
     assert_equal(nil, Todo::Util.compare_sorted_items("* twinkle twinkle", "1. The Only One"))
     assert_equal(nil, Todo::Util.compare_sorted_items("99. bottles", "* twinkle twinkle"))
+  end
+
+  def test_star
+    assert_equal "* bottles", Todo::Util.star("99. bottles")
+    assert_equal "* fruit", Todo::Util.star("* fruit")
+  end
+
+  def test_number
+    assert_equal "99. bottles", Todo::Util.number("* bottles", 99)
+    assert_equal "99. cents", Todo::Util.number("50. cents", 99)
+  end
+
+  def pending_test_unsort
+    assert_equal(["* card molly", "1. this is one", "2. this is another"],
+                 unsort(["1. this is one", "2. this is another", "3. card molly"], 3))
+    assert_equal(["* card molly", "* this is another", "1. this is one"],
+                 unsort(["1. this is one", "2. this is another", "* card molly"], 2))
   end
 end
