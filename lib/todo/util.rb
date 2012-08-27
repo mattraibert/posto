@@ -61,7 +61,7 @@ module Todo
 
       def unsort(items, n)
         item = items.delete_at(n - 1)
-        starred_group(items) + [star(item)] + numbered_group(items)
+        numbered_group(items) + starred_group(items) + [star(item)]
       end
     end
   end

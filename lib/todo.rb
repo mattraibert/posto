@@ -6,11 +6,13 @@ module Todo
   class << self
     def main(args)
       items = items = Todo::Util.choose_item_lines(IO.read("todo.md").split("\n"))
-      case args[0]
-        when nil
+      command = args[0] || "sort"
+      item_number = (args[1] || 1).to_i
+      case command
+        when "sort"
           items = Todo::Util.sort(items)
         when "unsort"
-          items = Todo::Util.unsort(items, args[1].to_i)
+          items = Todo::Util.unsort(items, item_number)
         else
           print "Unsupported operation #{args.inspect}"
       end
