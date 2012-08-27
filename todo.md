@@ -1,11 +1,12 @@
 todo
 ----
 
-1. unsort an item
-2. add a todo item
-3. rename todo list
-4. mark done (delete item from todo list)
-5. mark due today
-6. mark quick
-7. mark fun
-8. add tasks to an item
+1. mark done (delete item from todo list)
+2. specify todo list
+3. add a todo item
+4. mark due today
+5. mark quick
+6. mark fun
+7. add tasks to an item
+8. display cl help message
+9. handle cl input errors
