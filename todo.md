@@ -1,11 +1,13 @@
 todo
 ----
 
-1. add a todo item
-2. mark due today
-3. mark quick
-4. mark fun
-5. add tasks to an item
-6. display cl help message
-7. handle cl input errors
-8. sanitize cl arguments
+1. tests for Todo::Application
+2. tests for Todo::File
+3. add a todo item
+4. mark due today
+5. mark quick
+6. mark fun
+7. add tasks to an item
+8. display cl help message
+9. handle cl input errors
+10. sanitize cl arguments
