@@ -8,16 +8,7 @@ module Todo
     def main(args)
       arguments = Arguments.new(args)
       app = Application.new(TodoFile.new(arguments))
-      case arguments.command
-        when "sort"
-          app.sort
-        when "unsort"
-          app.unsort(arguments.item_number)
-        when "done"
-          app.done(arguments.item_number)
-        else
-          app.unknown(arguments.to_s)
-      end
+      app.send(arguments.command, arguments.item_number)
       app.write
     end
   end
@@ -28,7 +19,7 @@ module Todo
       @file = file
     end
 
-    def sort
+    def sort(n)
       @items = Todo::Util.sort(@items)
     end
 
@@ -40,8 +31,8 @@ module Todo
       @items = Todo::Util.done(@items, n)
     end
 
-    def unknown(args)
-      print "Unsupported operation #{args}"
+    def method_missing(symbol, *args)
+      STDERR.puts "Unsupported operation '#{symbol} #{args.join " "}'" unless symbol == :stderr
     end
 
     def write

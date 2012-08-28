@@ -8,3 +8,4 @@ todo
 5. add tasks to an item
 6. display cl help message
 7. handle cl input errors
+8. sanitize cl arguments
