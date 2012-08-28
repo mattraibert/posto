@@ -23,5 +23,9 @@ module Todo
         @args.delete_at(filename_index)
       end
     end
+
+    def to_s
+      @args.inspect
+    end
   end
 end
