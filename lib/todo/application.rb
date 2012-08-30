@@ -2,9 +2,14 @@ require 'todo/util'
 
 module Todo
   class Application
-    def initialize(file)
+    def initialize(file, arguments)
+      @arguments = arguments
       @items = Todo::Util.choose_item_lines(file.lines)
       @file = file
+    end
+
+    def run
+      self.send(@arguments.command, arguments.item_number)
     end
 
     def cli(command, opts={}, &block)

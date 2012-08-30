@@ -8,8 +8,8 @@ module Todo
     def main(args)
       arguments = Arguments.new(args)
       file = Todo::File.new(arguments.filename)
-      app = Todo::Application.new(file)
-      app.send(arguments.command, arguments.item_number)
+      app = Todo::Application.new(file, arguments)
+      app.run
       app.write
     end
   end
