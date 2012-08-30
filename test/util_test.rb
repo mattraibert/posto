@@ -66,4 +66,11 @@ class UtilTest < MiniTest::Unit::TestCase
     assert_equal(["1. this is one", "* card molly"],
                  Todo::Util.done(["1. this is one", "2. this is another", "* card molly"], 2))
   end
+
+  def test_add
+    assert_equal(["1. this is another", "2. card molly", "* this is one"],
+                 Todo::Util.add(["1. this is another", "2. card molly"], "* this is one"))
+    assert_equal(["1. this is another", "2. card molly", "* this is one"],
+    Todo::Util.add(["1. this is another", "2. card molly"], "this is one"))
+  end
 end

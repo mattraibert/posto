@@ -63,6 +63,11 @@ module Todo
         item = items.delete_at(n - 1)
         numbered_group(items) + starred_group(items) + [star(item)]
       end
+
+      def add(items, item)
+        item.sub!(/^(\* )?/, "* ")
+        items + [item]
+      end
     end
   end
 end
