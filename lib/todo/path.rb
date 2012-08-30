@@ -9,9 +9,7 @@ module Todo
     end
 
     def arguments
-    end
-
-    def optional_arguments
+      @path.sub(/^\w+ ?/,"").gsub(/-\w+ \w+/,"").scan /\w+|\[\w+\]/
     end
 
     def flags
