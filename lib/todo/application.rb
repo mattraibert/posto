@@ -9,7 +9,6 @@ module Todo
 
     def cli(command, opts={}, &block)
       @commands ||= {}
-
       @commands[command]= block
     end
 
@@ -28,7 +27,7 @@ module Todo
     def method_missing(symbol, *args)
       command = @commands[symbol.to_sym]
       return command.call if(command)
-      STDERR.puts "Unsupported operation '#{symbol} #{args.join " "}'" unless symbol == :stderr
+      STDERR.puts "Unsupported operation '#{symbol} #{args.join " "}'"
     end
 
     def write
