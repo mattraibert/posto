@@ -1,7 +1,9 @@
 module Todo
   class Command
-    def initialize(path)
+    attr_reader :block
+    def initialize(path, block)
       @path = path
+      @block = block
     end
 
     def name

@@ -1,4 +1,5 @@
 require 'todo/util'
+require 'todo/command'
 
 module Todo
   class Application
@@ -6,33 +7,32 @@ module Todo
       @arguments = arguments
       @items = Todo::Util.choose_item_lines(file.lines)
       @file = file
+
+      cli 'sort' do
+        @items = Todo::Util.sort(@items)
+      end
+
+      cli 'unsort [n]' do |n|
+        @items = Todo::Util.unsort(@items, n)
+      end
+
+      cli 'done [n]' do |n|
+        @items = Todo::Util.done(@items, n)
+      end
+
+      cli 'add [item]' do |item|
+        @items = Todo::Util.add(@items, item)
+      end
     end
 
     def run
-      self.send(@arguments.command, arguments.item_number)
+      @commands[@arguments.command].block.call(@arguments.item_number)
     end
 
     def cli(command, opts={}, &block)
       @commands ||= {}
-      @commands[command]= block
-    end
-
-    cli 'sort' do
-      @items = Todo::Util.sort(@items)
-    end
-
-    cli 'unsort :n' do |n|
-      @items = Todo::Util.unsort(@items, n)
-    end
-
-    def done(n)
-      @items = Todo::Util.done(@items, n)
-    end
-
-    def method_missing(symbol, *args)
-      command = @commands[symbol.to_sym]
-      return command.call if(command)
-      STDERR.puts "Unsupported operation '#{symbol} #{args.join " "}'"
+      command = Todo::Command.new(command, block)
+      @commands[command.name]= command
     end
 
     def write
