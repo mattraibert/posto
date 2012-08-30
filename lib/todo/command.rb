@@ -1,10 +1,10 @@
 module Todo
-  class Path
+  class Command
     def initialize(path)
       @path = path
     end
 
-    def command
+    def name
       @path.split(" ")[0]
     end
 
