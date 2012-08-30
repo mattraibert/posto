@@ -1,7 +1,7 @@
 require 'test_helper'
 require 'todo/path'
 
-class PathTest < MiniTest::Unit::TestCase
+class CommandTest < MiniTest::Unit::TestCase
   def test_command
     assert_equal("doit", Todo::Path.new("doit").command)
     assert_equal("doit", Todo::Path.new("doit required_item").command)
