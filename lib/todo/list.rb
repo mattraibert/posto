@@ -1,5 +1,5 @@
 module Todo
-  module Util
+  module List
     class << self
       MD_LIST_ITEM = /^(\*|\d+\.) /
 
