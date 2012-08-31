@@ -17,5 +17,5 @@ Gem::Specification.new do |gem|
   gem.required_rubygems_version = Gem::Requirement.new(">= 1.3.6") if gem.respond_to? :required_rubygems_version=
   gem.summary = %q{Sort your todo list.}
   gem.test_files = Dir.glob("test/**/*")
-  gem.version = "0.0.1"
+  gem.version = "0.0.2"
 end
