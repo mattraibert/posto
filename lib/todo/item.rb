@@ -18,9 +18,7 @@ module Todo
         x = x.to_i
         y = y.to_i
         return nil if (x == 0 or y == 0)
-        return -1 if (y > x)
-        return 1 if (x > y)
-        0
+        x <=> y
       end
 
       def hide_markdown(item)

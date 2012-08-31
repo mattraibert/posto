@@ -4,8 +4,8 @@ module Todo
       @args = args
     end
 
-    def item_number
-      (@args[1] || 1).to_i
+    def params
+      @args[1..-1] || []
     end
 
     def command

@@ -1,3 +1,5 @@
+require 'todo/list'
+
 module Todo
   class List
     class << self
@@ -31,8 +33,7 @@ module Todo
       end
 
       def add(items, item)
-        item.sub!(/^(\* )?/, "* ")
-        items + [item]
+        items + [item.sub(/^(\* )?/, "* ")]
       end
     end
   end

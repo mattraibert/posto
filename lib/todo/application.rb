@@ -7,20 +7,20 @@ module Todo
       @file = file
     end
 
-    def sort(n)
+    def sort
       @items = Todo::List.sort(@items)
     end
 
-    def unsort(n)
-      @items = Todo::List.unsort(@items, n)
+    def unsort(n = 1)
+      @items = Todo::List.unsort(@items, n.to_i)
     end
 
-    def done(n)
-      @items = Todo::List.done(@items, n)
+    def done(n = 1)
+      @items = Todo::List.done(@items, n.to_i)
     end
 
     def method_missing(symbol, *args)
-      STDERR.puts "Unsupported operation '#{symbol} #{args.join " "}'" unless symbol == :stderr
+      STDERR.puts "Unsupported operation '#{symbol} #{args.join " "}'"
     end
 
     def write
