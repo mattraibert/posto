@@ -1,26 +1,26 @@
-require 'todo/util'
+require 'todo/list'
 
 module Todo
   class Application
     def initialize(file)
-      @items = Todo::Util.choose_item_lines(file.lines)
+      @items = Todo::List.choose_item_lines(file.lines)
       @file = file
     end
 
     def sort
-      @items = Todo::Util.sort(@items)
+      @items = Todo::List.sort(@items)
     end
 
     def unsort(n = 1)
-      @items = Todo::Util.unsort(@items, n.to_i)
+      @items = Todo::List.unsort(@items, n.to_i)
     end
 
     def done(n = 1)
-      @items = Todo::Util.done(@items, n.to_i)
+      @items = Todo::List.done(@items, n.to_i)
     end
 
     def add(item)
-      @items = Todo::Util.add(@items, item)
+      @items = Todo::List.add(@items, item)
     end
 
     def method_missing(symbol, *args)
