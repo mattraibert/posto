@@ -1,23 +1,46 @@
 module Todo
-  module List
+  class List
     class << self
-      MD_LIST_ITEM = /^(\*|\d+\.) /
-
       def number_items(items)
-        items.each_with_index.map { |item, i| number(item, i + 1) }
+        items.each_with_index.map { |item, i| Todo::Item.number(item, i + 1) }
       end
 
       def choose_item_lines(lines)
-        lines.select { |line| MD_LIST_ITEM =~ line }
-      end
-
-      def hide_markdown(item)
-        item.sub(MD_LIST_ITEM, "")
+        lines.select { |line| Todo::Item.item?(line) }
       end
 
       def sort(items)
-        number_items(items.sort { |x, y| compare_sorted_items(x, y) or ask_human_to_compare(x, y) })
+        number_items(items.sort { |x, y| Todo::Item.compare_sorted_items(x, y) or Todo::Item.ask_human_to_compare(x, y) })
       end
+
+      def starred_group(items)
+        items.select { |item| /^\* / =~ item }
+      end
+
+      def numbered_group(items)
+        sort items.select { |item| /^\d+\. / =~ item }
+      end
+
+      def done(items, n)
+        unsort(items, n)[0..-2]
+      end
+
+      def unsort(items, n)
+        item = items.delete_at(n - 1)
+        numbered_group(items) + starred_group(items) + [Todo::Item.star(item)]
+      end
+
+      def add(items, item)
+        item.sub!(/^(\* )?/, "* ")
+        items + [item]
+      end
+    end
+  end
+end
+module Todo
+  class Item
+    class << self
+      MD_LIST_ITEM = /^(\*|\d+\.) /
 
       def ask_human_to_compare(x, y)
         while true do
@@ -39,12 +62,8 @@ module Todo
         0
       end
 
-      def starred_group(items)
-        items.select { |item| /^\* / =~ item }
-      end
-
-      def numbered_group(items)
-        sort items.select { |item| /^\d+\. / =~ item }
+      def hide_markdown(item)
+        item.sub(MD_LIST_ITEM, "")
       end
 
       def star(item)
@@ -55,18 +74,8 @@ module Todo
         item.sub MD_LIST_ITEM, "#{n}. "
       end
 
-      def done(items, n)
-        unsort(items, n)[0..-2]
-      end
-
-      def unsort(items, n)
-        item = items.delete_at(n - 1)
-        numbered_group(items) + starred_group(items) + [star(item)]
-      end
-
-      def add(items, item)
-        item.sub!(/^(\* )?/, "* ")
-        items + [item]
+      def item?(line)
+        MD_LIST_ITEM =~ line
       end
     end
   end
