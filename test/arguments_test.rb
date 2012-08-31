@@ -15,10 +15,10 @@ class ArgumentsTest < MiniTest::Unit::TestCase
     assert_equal("done", Todo::Arguments.new(%w(done 5)).command)
   end
 
-  def test_item_number
-    assert_equal(1, Todo::Arguments.new([]).item_number)
-    assert_equal(1, Todo::Arguments.new(%w(sort)).item_number)
-    assert_equal(5, Todo::Arguments.new(%w(done 5)).item_number)
+  def test_params
+    assert_equal([], Todo::Arguments.new([]).params)
+    assert_equal([], Todo::Arguments.new(%w(sort)).params)
+    assert_equal(["5"], Todo::Arguments.new(%w(done 5)).params)
   end
 
   def test_flag_deletes_flag

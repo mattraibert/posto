@@ -34,9 +34,7 @@ module Todo
         x = x.to_i
         y = y.to_i
         return nil if (x == 0 or y == 0)
-        return -1 if (y > x)
-        return 1 if (x > y)
-        0
+        x <=> y
       end
 
       def starred_group(items)
@@ -65,8 +63,7 @@ module Todo
       end
 
       def add(items, item)
-        item.sub!(/^(\* )?/, "* ")
-        items + [item]
+        items + [item.sub(/^(\* )?/, "* ")]
       end
     end
   end
