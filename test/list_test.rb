@@ -1,7 +1,7 @@
 require 'test_helper'
 require 'todo/util'
 
-class UtilTest < MiniTest::Unit::TestCase
+class ListTest < MiniTest::Unit::TestCase
   def test_replace_stars
     assert_equal(["1. this is one", "2. this is another", "3. card molly"],
                  Todo::Util.number_items(["* this is one", "* this is another", "99. card molly"]))
