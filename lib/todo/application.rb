@@ -19,6 +19,10 @@ module Todo
       @items = Todo::List.done(@items, n.to_i)
     end
 
+    def add(item)
+      @items = Todo::Util.add(@items, item)
+    end
+
     def method_missing(symbol, *args)
       STDERR.puts "Unsupported operation '#{symbol} #{args.join " "}'"
     end
