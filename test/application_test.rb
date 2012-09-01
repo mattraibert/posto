@@ -3,21 +3,6 @@ require 'todo/application'
 require 'grasshopper'
 require 'minitest/mock'
 
-class Stub
-  def initialize(stubs)
-    @stubs = stubs
-  end
-
-  def method_missing(sym, *args)
-    return nil unless @stubs.has_key?(sym)
-    @stubs[sym]
-  end
-
-  def self.like(name = "a stub", stubs)
-    Stub.new(stubs)
-  end
-end
-
 class ApplicationTest < MiniTest::Unit::TestCase
   def test_sort
     mock = Mock.new
