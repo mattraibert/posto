@@ -1,4 +1,4 @@
-require 'todo/list'
+require 'todo/item'
 
 module Todo
   class List
