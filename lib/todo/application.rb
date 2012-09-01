@@ -10,8 +10,6 @@ module Todo
 
     def run
       send(@arguments.command, *@arguments.params)
-      puts @items
-      @items
     end
 
     def sort
