@@ -8,9 +8,9 @@ module Todo
   class << self
     def main(args)
       arguments = Arguments.new(args)
-      file = Todo::File.new(arguments.filename)
-      items = Todo::List.choose_item_lines(file.lines)
-      result = Todo::Application.new(arguments, items).run
+      file = File.new(arguments.filename)
+      items = List.choose_item_lines(file.lines)
+      result = Application.new(arguments, items).run
       file.write(result)
     end
   end

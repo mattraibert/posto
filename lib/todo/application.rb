@@ -2,7 +2,7 @@ require 'todo/list'
 
 module Todo
   class Application
-    def initialize(arguments, items, list = Todo::List)
+    def initialize(arguments, items, list = List)
       @arguments = arguments
       @items = items
       @list = list

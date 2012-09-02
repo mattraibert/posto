@@ -7,7 +7,7 @@ module Todo
     end
 
     def write(items)
-      todo_list = Todo::Template.todo_list(items)
+      todo_list = Template.todo_list(items)
       puts todo_list
       IO.write(@filename, todo_list)
     end

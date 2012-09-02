@@ -13,7 +13,7 @@ module Todo
     end
 
     def filename
-      read_flag("-f") || "todo.md"
+      read_flag("-f") || "posto.md"
     end
 
     def read_flag(flag)
