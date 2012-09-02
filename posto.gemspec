@@ -2,7 +2,7 @@
 
 Gem::Specification.new do |gem|
   gem.name = 'posto'
-  gem.version = "0.1.0"
+  gem.version = "0.1.1"
   gem.license = "GPLv3"
   gem.summary = "Sort your todo list."
   gem.description = "Sort your todo list."
@@ -13,4 +13,6 @@ Gem::Specification.new do |gem|
   gem.files = ["Rakefile", "README.md", "LICENSE.txt"]
   gem.files += Dir["lib/**/*"]
   gem.test_files = Dir["test/**/*"]
+  gem.add_dependency('activesupport')
+  gem.add_dependency('highline')
 end
