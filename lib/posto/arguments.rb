@@ -1,4 +1,4 @@
-module Todo
+module Posto
   class Arguments
     def initialize(args)
       @args = args

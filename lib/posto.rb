@@ -1,10 +1,10 @@
 require 'highline/import'
-require 'todo/arguments'
-require 'todo/application'
-require 'todo/file'
-require 'todo/list'
+require 'posto/arguments'
+require 'posto/application'
+require 'posto/file'
+require 'posto/list'
 
-module Todo
+module Posto
   class << self
     def main(args)
       arguments = Arguments.new(args)

@@ -1,6 +1,6 @@
-require 'todo/list'
+require 'posto/list'
 
-module Todo
+module Posto
   class Application
     def initialize(arguments, items, list = List)
       @arguments = arguments

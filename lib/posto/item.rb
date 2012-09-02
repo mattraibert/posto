@@ -1,4 +1,4 @@
-module Todo
+module Posto
   class Item
     class << self
       MD_LIST_ITEM = /^(\*|\d+\.) /

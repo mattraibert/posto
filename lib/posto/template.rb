@@ -1,4 +1,4 @@
-module Todo
+module Posto
   module Template
     def self.todo_list(items)
       "todo\n----\n\n#{items.join("\n")}\n"

@@ -5,7 +5,7 @@ todo
 2. resort all
 3. mark quick
 4. add tasks to an item
-5. switch the todo file using a .todo.conf file
+5. switch the todo file using a .posto.conf file
 6. mark fun
 7. mark due today
 8. old items

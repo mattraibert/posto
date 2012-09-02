@@ -1,5 +1,5 @@
 #!/usr/bin/env ruby
 
-require 'todo'
+require 'posto'
 
-Todo.main(ARGV)
+Posto.main(ARGV)

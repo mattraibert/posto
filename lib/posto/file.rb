@@ -1,6 +1,6 @@
-require 'todo/template'
+require 'posto/template'
 
-module Todo
+module Posto
   class File
     def initialize(filename)
       @filename = filename

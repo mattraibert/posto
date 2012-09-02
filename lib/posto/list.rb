@@ -1,6 +1,6 @@
-require 'todo/item'
+require 'posto/item'
 
-module Todo
+module Posto
   class List
     class << self
       def number_items(items)
