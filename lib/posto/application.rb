@@ -20,6 +20,10 @@ module Posto
       @items = @list.unsort(@items, n.to_i)
     end
 
+    def resort
+      @items = @list.resort(@items)
+    end
+
     def done(n = 1)
       @items = @list.done(@items, n.to_i)
     end

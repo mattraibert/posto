@@ -32,6 +32,10 @@ module Posto
         numbered_group(items) + starred_group(items) + [Item.star(item)]
       end
 
+      def resort(items)
+        sort items.map { |item| Item.star(item) }
+      end
+
       def add(items, item)
         items + [item.sub(/^(\* )?/, "* ")]
       end

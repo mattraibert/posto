@@ -16,6 +16,12 @@ class ApplicationTest < MiniTest::Unit::TestCase
     Mock.verify(mock).unsort([], 4)
   end
 
+  def test_resort
+    mock = Mock.new
+    Posto::Application.new(Stub.like(:command => "resort", :params => []), [], mock).run
+    Mock.verify(mock).resort([])
+  end
+
   def test_done
     mock = Mock.new
     Posto::Application.new(Stub.like(:command => "done", :params => ["4"]), [], mock).run

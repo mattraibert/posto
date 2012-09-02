@@ -2,7 +2,7 @@
 
 Gem::Specification.new do |gem|
   gem.name = 'posto'
-  gem.version = "0.0.3"
+  gem.version = "0.1.0"
   gem.license = "GPLv3"
   gem.summary = "Sort your todo list."
   gem.description = "Sort your todo list."
