@@ -1,3 +1,5 @@
+require 'posto/template'
+
 module Posto
   class Item
     class << self
@@ -5,9 +7,7 @@ module Posto
 
       def ask_human_to_compare(x, y)
         while true do
-          puts "1. #{hide_markdown x}"
-          puts "2. #{hide_markdown y}"
-          response = ask("which one is more important? (1, 2 or just hit enter if you don't care): ").to_i
+          response = ask(Template.human_comparison(hide_markdown(x), hide_markdown(y))).to_i
           return 0 if response == 0
           return -1 if response == 1
           return 1 if response == 2
