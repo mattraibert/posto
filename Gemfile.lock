@@ -6,7 +6,7 @@ GEM
       multi_json (~> 1.0)
     ansi (1.4.3)
     builder (3.0.0)
-    grasshopper (0.2.0)
+    grasshopper (0.4.0)
       minitest
     hashie (1.2.0)
     highline (1.6.14)
