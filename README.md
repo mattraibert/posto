@@ -8,5 +8,5 @@ Posto is named for [Del Posto](http://www.delposto.com/) in New York City -- a r
 
 ## Copyright
 
-Copyright (c) 2011 Matt Raibert.
+Copyright (c) 2012 Matt Raibert.
 Grasshopper is available under the GPL v3 see LICENSE.txt for further details.

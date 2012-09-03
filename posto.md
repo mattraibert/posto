@@ -1,9 +1,9 @@
 todo
 ----
 
-1. release gem
-2. mark quick
-3. add tasks to an item
+1. mark quick
+2. add tasks to an item
+3. rename default todo list back to todo.md
 4. old items
 5. mark due today
 6. mark fun
