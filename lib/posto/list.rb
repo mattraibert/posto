@@ -39,6 +39,11 @@ module Posto
       def add(items, item)
         items + [item.sub(/^(\* )?/, "* ")]
       end
+
+      def quick(items, n)
+        items[n -1] = items[n - 1].sub(/( \(quick\))?$/, " (quick)")
+        items
+      end
     end
   end
 end

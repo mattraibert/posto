@@ -32,6 +32,10 @@ module Posto
       @items = @list.add(@items, item)
     end
 
+    def quick(n = 1)
+      @items = @list.quick(@items, n.to_i)
+    end
+
     def method_missing(symbol, *args)
       STDERR.puts "Unsupported operation '#{symbol} #{args.join " "}'"
     end
