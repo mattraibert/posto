@@ -16,11 +16,11 @@ module Posto
       end
 
       def starred_group(items)
-        items.select { |item| /^\* / =~ item }
+        items.select { |item| starred?(item) }
       end
 
       def numbered_group(items)
-        sort items.select { |item| /^\d+\. / =~ item }
+        sort items.select { |item| numbered?(item) }
       end
 
       def done(items, n)
@@ -37,12 +37,28 @@ module Posto
       end
 
       def add(items, item)
-        items + [item.sub(/^(\* )?/, "* ")]
+        items + [create(item)]
       end
 
       def quick(items, n)
-        items[n -1] = items[n - 1].sub(/( \(quick\))?$/, " (quick)")
+        items[n -1] = mark_quick(items[n - 1])
         items
+      end
+
+      def create(item)
+        item.sub(/^(\* )?/, "* ")
+      end
+
+      def mark_quick(item)
+        item.sub(/( \(quick\))?$/, " (quick)")
+      end
+
+      def starred?(item)
+        /^\* / =~ item
+      end
+
+      def numbered?(item)
+        /^\d+\. / =~ item
       end
     end
   end
