@@ -36,6 +36,22 @@ module Posto
       def item?(line)
         MD_LIST_ITEM =~ line
       end
+
+      def create(item)
+        item.sub(/^(\* )?/, "* ")
+      end
+
+      def mark_quick(item)
+        item.sub(/( \(quick\))?$/, " (quick)")
+      end
+
+      def starred?(item)
+        /^\* / =~ item
+      end
+
+      def numbered?(item)
+        /^\d+\. / =~ item
+      end
     end
   end
 end
