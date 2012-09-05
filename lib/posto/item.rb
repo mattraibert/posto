@@ -2,55 +2,73 @@ require 'posto/template'
 
 module Posto
   class Item
+    MD_LIST_ITEM = /^(\*|\d+\.) /
+
+    attr_reader :item
+
+    def initialize(item)
+      @item = item.freeze
+    end
+
+    def ask_human_to_compare(other)
+      while true do
+        response = ask(Template.human_comparison(item.hide_markdown, other.hide_markdown)).to_i
+        return 0 if response == 0
+        return -1 if response == 1
+        return 1 if response == 2
+      end
+    end
+
+    def compare_sorted_items(y)
+      x = item.to_i
+      y = y.item.to_i
+      return nil if (x == 0 or y == 0)
+      x <=> y
+    end
+
+    def hide_markdown
+      item.sub(MD_LIST_ITEM, "")
+    end
+
+    def star
+      item.sub MD_LIST_ITEM, "* "
+    end
+
+    def number(n)
+      item.sub MD_LIST_ITEM, "#{n}. "
+    end
+
+    def create
+      item.sub(/^(\* )?/, "* ")
+    end
+
+    def mark_quick
+      item.sub(/( \(quick\))?$/, " (quick)")
+    end
+
+    def starred?
+      /^\* / =~ item
+    end
+
+    def numbered?
+      /^\d+\. / =~ item
+    end
+
     class << self
-      MD_LIST_ITEM = /^(\*|\d+\.) /
+      def method_missing(symbol, *args)
+        Item.new(args.first).send(symbol, *args[1..-1])
+      end
 
       def ask_human_to_compare(x, y)
-        while true do
-          response = ask(Template.human_comparison(hide_markdown(x), hide_markdown(y))).to_i
-          return 0 if response == 0
-          return -1 if response == 1
-          return 1 if response == 2
-        end
+        Item.new(x).ask_human_to_compare(Item.new(y))
       end
 
       def compare_sorted_items(x, y)
-        x = x.to_i
-        y = y.to_i
-        return nil if (x == 0 or y == 0)
-        x <=> y
-      end
-
-      def hide_markdown(item)
-        item.sub(MD_LIST_ITEM, "")
-      end
-
-      def star(item)
-        item.sub MD_LIST_ITEM, "* "
-      end
-
-      def number(item, n)
-        item.sub MD_LIST_ITEM, "#{n}. "
+        Item.new(x).compare_sorted_items(Item.new(y))
       end
 
       def item?(line)
         MD_LIST_ITEM =~ line
-      end
-
-      def create(item)
-        item.sub(/^(\* )?/, "* ")
-      end
-
-      def mark_quick(item)
-        item.sub(/( \(quick\))?$/, " (quick)")
-      end
-
-      def starred?(item)
-        /^\* / =~ item
-      end
-
-      def numbered?(item)
-        /^\d+\. / =~ item
       end
     end
   end
