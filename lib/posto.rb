@@ -11,7 +11,7 @@ module Posto
       file = File.new(args.filename)
       list = List.new(file.lines)
 
-      result = Application.new(args, list).run
+      result = Application.new(args, list).run.items
 
       file.write(result)
     end
