@@ -1,12 +1,15 @@
 todo
 ----
 
-1. add tasks to an item
-2. rename default todo list back to todo.md
-3. old items
-4. mark due today
-5. mark fun (quick)
-6. display cl help message
-7. switch the todo file using a .posto.conf file
-8. handle cl input errors
-9. sanitize cl arguments
+1. quick command without args should list quick items
+2. edit items
+3. only sort new items against top 5 (3?)
+4. add tasks to an item
+5. sync list to trello
+6. mark items old; don't show up by default
+7. mark due today
+8. mark fun (quick)
+9. display cl help message
+10. switch the todo file using a .posto.conf file
+11. handle cl input errors
+12. sanitize cl arguments
