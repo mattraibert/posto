@@ -26,35 +26,35 @@ class ListTest < MiniTest::Unit::TestCase
 
   def test_unsort
     assert_equal(["1. this is another", "2. card molly", "* this is one"],
-                 Posto::List.unsort(["1. this is one", "2. this is another", "3. card molly"], 1))
+                 Posto::List.new(["1. this is one", "2. this is another", "3. card molly"]).unsort(1))
     assert_equal(["1. this is one", "2. this is another", "* card molly"],
-                 Posto::List.unsort(["1. this is one", "2. this is another", "3. card molly"], 3))
+                 Posto::List.new(["1. this is one", "2. this is another", "3. card molly"]).unsort(3))
     assert_equal(["1. this is one", "* card molly", "* this is another"],
-                 Posto::List.unsort(["1. this is one", "2. this is another", "* card molly"], 2))
+                 Posto::List.new(["1. this is one", "2. this is another", "* card molly"]).unsort(2))
   end
 
   def test_done
     assert_equal(["1. this is another", "2. card molly"],
-                 Posto::List.done(["1. this is one", "2. this is another", "3. card molly"], 1))
+                 Posto::List.new(["1. this is one", "2. this is another", "3. card molly"]).done(1))
     assert_equal(["1. this is one", "2. this is another"],
-                 Posto::List.done(["1. this is one", "2. this is another", "3. card molly"], 3))
+                 Posto::List.new(["1. this is one", "2. this is another", "3. card molly"]).done(3))
     assert_equal(["1. this is one", "* card molly"],
-                 Posto::List.done(["1. this is one", "2. this is another", "* card molly"], 2))
+                 Posto::List.new(["1. this is one", "2. this is another", "* card molly"]).done(2))
   end
 
   def test_quick
     assert_equal(["1. this is one (quick)", "2. this is another", "3. card molly"],
-                 Posto::List.quick(["1. this is one", "2. this is another", "3. card molly"], 1))
+                 Posto::List.new(["1. this is one", "2. this is another", "3. card molly"]).quick(1))
     assert_equal(["1. this is one (quick)", "2. this is another", "3. card molly"],
-                 Posto::List.quick(["1. this is one (quick)", "2. this is another", "3. card molly"], 1))
+                 Posto::List.new(["1. this is one (quick)", "2. this is another", "3. card molly"]).quick(1))
     assert_equal(["1. this is one", "2. this is another (quick)", "* card molly"],
-                 Posto::List.quick(["1. this is one", "2. this is another", "* card molly"], 2))
+                 Posto::List.new(["1. this is one", "2. this is another", "* card molly"]).quick(2))
   end
 
   def test_add
     assert_equal(["1. this is another", "2. card molly", "* this is one"],
-                 Posto::List.add(["1. this is another", "2. card molly"], "* this is one"))
+                 Posto::List.new(["1. this is another", "2. card molly"]).add("* this is one"))
     assert_equal(["1. this is another", "2. card molly", "* this is one"],
-    Posto::List.add(["1. this is another", "2. card molly"], "this is one"))
+                 Posto::List.new(["1. this is another", "2. card molly"]).add("this is one"))
   end
 end
