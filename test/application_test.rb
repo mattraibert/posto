@@ -4,6 +4,13 @@ require 'grasshopper'
 require 'minitest/mock'
 
 class ApplicationTest < MiniTest::Unit::TestCase
+  def test_default
+    mock = Mock.new
+    array = []
+    result = Posto::Application.new(Stub.like(:command => "list", :params => []), array, mock).run
+    assert_same(array, result)
+  end
+
   def test_sort
     mock = Mock.new
     Posto::Application.new(Stub.like(:command => "sort", :params => []), [], mock).run

@@ -9,7 +9,7 @@ module Posto
     end
 
     def command
-      @args[0] || "sort"
+      @args[0] || "list"
     end
 
     def filename

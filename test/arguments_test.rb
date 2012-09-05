@@ -10,7 +10,7 @@ class ArgumentsTest < MiniTest::Unit::TestCase
   end
 
   def test_command
-    assert_equal("sort", Posto::Arguments.new([]).command)
+    assert_equal("list", Posto::Arguments.new([]).command)
     assert_equal("sort", Posto::Arguments.new(%w(sort)).command)
     assert_equal("done", Posto::Arguments.new(%w(done 5)).command)
   end

@@ -12,6 +12,10 @@ module Posto
       send(@arguments.command, *@arguments.params)
     end
 
+    def list
+      @items
+    end
+
     def sort
       @items = @list.sort(@items)
     end
