@@ -14,6 +14,25 @@ module Posto
       List.unsort(@items, n)[0..-2]
     end
 
+    def unsort(n)
+      item = @items.delete_at(n - 1)
+      List.numbered_group(@items) + List.starred_group(@items) + [Item.star(item)]
+    end
+
+    def resort
+      @items = @items.map { |item| Item.star(item) }
+      sort #TODO two different abstraction levels
+    end
+
+    def add(item)
+      @items + [Item.create(item)]
+    end
+
+    def quick(n)
+      @items[n -1] = Item.mark_quick(@items[n - 1])
+      @items
+    end
+
     class << self
       def number_items(items)
         items.each_with_index.map { |item, i| Item.number(item, i + 1) }
@@ -40,21 +59,19 @@ module Posto
       end
 
       def unsort(items, n)
-        item = items.delete_at(n - 1)
-        numbered_group(items) + starred_group(items) + [Item.star(item)]
+        List.new(items).unsort(n)
       end
 
       def resort(items)
-        sort items.map { |item| Item.star(item) }
+        List.new(items).resort
       end
 
       def add(items, item)
-        items + [Item.create(item)]
+        List.new(items).add(item)
       end
 
       def quick(items, n)
-        items[n -1] = Item.mark_quick(items[n - 1])
-        items
+        List.new(items).quick(n)
       end
     end
   end
