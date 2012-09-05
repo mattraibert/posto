@@ -2,6 +2,18 @@ require 'posto/item'
 
 module Posto
   class List
+    def initialize(items)
+      @items = List.choose_item_lines(items)
+    end
+
+    def sort
+      List.number_items(@items.sort { |x, y| Item.compare_sorted_items(x, y) or Item.ask_human_to_compare(x, y) })
+    end
+
+    def done(n)
+      List.unsort(@items, n)[0..-2]
+    end
+
     class << self
       def number_items(items)
         items.each_with_index.map { |item, i| Item.number(item, i + 1) }
@@ -12,7 +24,7 @@ module Posto
       end
 
       def sort(items)
-        number_items(items.sort { |x, y| Item.compare_sorted_items(x, y) or Item.ask_human_to_compare(x, y) })
+        List.new(items).sort
       end
 
       def starred_group(items)
@@ -24,7 +36,7 @@ module Posto
       end
 
       def done(items, n)
-        unsort(items, n)[0..-2]
+        List.new(items).done(n)
       end
 
       def unsort(items, n)

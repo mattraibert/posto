@@ -2,9 +2,8 @@ require 'posto/list'
 
 module Posto
   class Application
-    def initialize(arguments, items, list = List)
+    def initialize(arguments, list)
       @arguments = arguments
-      @items = items
       @list = list
     end
 
@@ -13,27 +12,27 @@ module Posto
     end
 
     def sort
-      @items = @list.sort(@items)
+      @list.sort
     end
 
     def unsort(n = 1)
-      @items = @list.unsort(@items, n.to_i)
+      @list.unsort(n.to_i)
     end
 
     def resort
-      @items = @list.resort(@items)
+      @list.resort
     end
 
     def done(n = 1)
-      @items = @list.done(@items, n.to_i)
+      @list.done(n.to_i)
     end
 
     def add(item)
-      @items = @list.add(@items, item)
+      @list.add(item)
     end
 
     def quick(n = 1)
-      @items = @list.quick(@items, n.to_i)
+      @list.quick(n.to_i)
     end
 
     def method_missing(symbol, *args)
