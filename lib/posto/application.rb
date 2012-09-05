@@ -2,42 +2,41 @@ require 'posto/list'
 
 module Posto
   class Application
-    def initialize(arguments, items, list = List)
+    def initialize(arguments, list = List)
       @arguments = arguments
-      @items = items.freeze
       @list = list
     end
 
-    def run
-      send(@arguments.command, *@arguments.params)
+    def run(items)
+      send(@arguments.command, items, *@arguments.params)
     end
 
-    def list
-      @items
+    def list(items)
+      items
     end
 
-    def sort
-      @list.sort(@items)
+    def sort(items)
+      @list.sort(items)
     end
 
-    def unsort(n = 1)
-      @list.unsort(@items, n.to_i)
+    def unsort(items, n = 1)
+      @list.unsort(items, n.to_i)
     end
 
-    def resort
-      @list.resort(@items)
+    def resort(items)
+      @list.resort(items)
     end
 
-    def done(n = 1)
-      @list.done(@items, n.to_i)
+    def done(items, n = 1)
+      @list.done(items, n.to_i)
     end
 
-    def add(item)
-      @list.add(@items, item)
+    def add(items, item)
+      @list.add(items, item)
     end
 
-    def quick(n = 1)
-      @list.quick(@items, n.to_i)
+    def quick(items, n = 1)
+      @list.quick(items, n.to_i)
     end
 
     def method_missing(symbol, *args)

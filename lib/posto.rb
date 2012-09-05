@@ -10,7 +10,7 @@ module Posto
       arguments = Arguments.new(args)
       file = File.new(arguments.filename)
       items = List.choose_item_lines(file.lines)
-      result = Application.new(arguments, items).run
+      result = Application.new(arguments).run(items)
       file.write(result)
     end
   end
