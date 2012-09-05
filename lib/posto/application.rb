@@ -4,7 +4,7 @@ module Posto
   class Application
     def initialize(arguments, items, list = List)
       @arguments = arguments
-      @items = items
+      @items = items.freeze
       @list = list
     end
 

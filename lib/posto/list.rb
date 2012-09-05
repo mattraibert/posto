@@ -1,4 +1,5 @@
 require 'posto/item'
+require 'posto/monkeypatch_array'
 
 module Posto
   class List
@@ -28,8 +29,7 @@ module Posto
       end
 
       def unsort(items, n)
-        item = items.delete_at(n - 1)
-        numbered_group(items) + starred_group(items) + [Item.star(item)]
+        numbered_group(items.reject_at(n - 1)) + starred_group(items.reject_at(n - 1)) + [Item.star(items[n - 1])]
       end
 
       def resort(items)
