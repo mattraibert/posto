@@ -11,7 +11,7 @@ module Posto
     end
 
     def done(n)
-      List.unsort(@items, n)[0..-2]
+      unsort(n)[0..-2]
     end
 
     def unsort(n)
@@ -42,36 +42,12 @@ module Posto
         lines.select { |line| Item.item?(line) }
       end
 
-      def sort(items)
-        List.new(items).sort
-      end
-
       def starred_group(items)
         items.select { |item| Item.starred?(item) }
       end
 
       def numbered_group(items)
-        sort items.select { |item| Item.numbered?(item) }
-      end
-
-      def done(items, n)
-        List.new(items).done(n)
-      end
-
-      def unsort(items, n)
-        List.new(items).unsort(n)
-      end
-
-      def resort(items)
-        List.new(items).resort
-      end
-
-      def add(items, item)
-        List.new(items).add(item)
-      end
-
-      def quick(items, n)
-        List.new(items).quick(n)
+        List.new(items.select { |item| Item.numbered?(item) }).sort
       end
     end
   end
