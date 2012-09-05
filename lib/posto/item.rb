@@ -54,19 +54,11 @@ module Posto
       /^\d+\. / =~ item
     end
 
+    def item?
+      MD_LIST_ITEM =~ item
+    end
+
     class << self
-      def method_missing(symbol, *args)
-        Item.new(args.first).send(symbol, *args[1..-1])
-      end
-
-      def ask_human_to_compare(x, y)
-        Item.new(x).ask_human_to_compare(Item.new(y))
-      end
-
-      def compare_sorted_items(x, y)
-        Item.new(x).compare_sorted_items(Item.new(y))
-      end
-
       def item?(line)
         MD_LIST_ITEM =~ line
       end

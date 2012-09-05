@@ -6,7 +6,7 @@ module Posto
     attr_reader :items
 
     def initialize(items)
-      @items = List.choose_item_lines(items).freeze
+      @items = List.choose_item_lines(items).map { |item| Item.new(item) }.freeze
     end
 
     ##commands
@@ -26,33 +26,33 @@ module Posto
 
     def unsort(n)
       item, remainder = reject_at(n - 1)
-      remainder.numbered_group + remainder.starred_group + List.new([Item.star(item)])
+      remainder.numbered_group + remainder.starred_group + List.new([item.star])
     end
 
     def resort
-      List.new(@items.map { |item| Item.star(item) }).sort
+      List.new(@items.map { |item| item.star }).sort
     end
 
     def add(item)
-      List.new(@items + [Item.create(item)])
+      List.new(@items + [Item.new(item).create])
     end
 
     def quick(n)
       items = @items.dup
-      items[n -1] = Item.mark_quick(items[n - 1])
+      items[n -1] = items[n - 1].mark_quick
       List.new(items)
     end
 
     def number_items
-      List.new(@items.each_with_index.map { |item, i| Item.number(item, i + 1) })
+      List.new(@items.each_with_index.map { |item, i| item.number(i + 1) })
     end
 
     def starred_group
-      List.new(@items.select { |item| Item.starred?(item) })
+      List.new(@items.select { |item| item.starred? })
     end
 
     def numbered_group
-      List.new(@items.select { |item| Item.numbered?(item) }).sort
+      List.new(@items.select { |item| item.numbered? }).sort
     end
 
     def +(list)
