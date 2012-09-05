@@ -7,9 +7,12 @@ require 'posto/list'
 module Posto
   class << self
     def main(args)
-      arguments = Arguments.new(args)
-      file = File.new(arguments.filename)
-      result = Application.new(arguments, List.new(items)).run
+      args = Arguments.new(args)
+      file = File.new(args.filename)
+      list = List.new(file.lines)
+
+      result = Application.new(args, list).run
+
       file.write(result)
     end
   end
