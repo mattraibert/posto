@@ -45,4 +45,10 @@ class ApplicationTest < MiniTest::Unit::TestCase
     Posto::Application.new(Stub.like(:command => "quick", :params => ["4"]), mock, Mock.new).run([])
     Mock.verify(mock).quick([], 4)
   end
+
+  def test_top
+    mock = Mock.new
+    Posto::Application.new(Stub.like(:command => "top", :params => ["4"]), mock, Mock.new).run([])
+    Mock.verify(mock).top([], 4)
+  end
 end

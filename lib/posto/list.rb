@@ -44,6 +44,10 @@ module Posto
         items[n -1] = Item.mark_quick(items[n - 1])
         items
       end
+
+      def top(items, n)
+        number_items [items[n - 1]] + items.reject_at(n - 1)
+      end
     end
   end
 end

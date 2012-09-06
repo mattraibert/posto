@@ -37,6 +37,10 @@ module Posto
       list @list.add(items, item)
     end
 
+    def top(items, n = 1)
+      list @list.top(items, n.to_i)
+    end
+
     def quick(items, n = 1)
       list @list.quick(items, n.to_i)
     end
