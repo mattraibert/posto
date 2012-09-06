@@ -46,7 +46,10 @@ module Posto
       end
 
       def top(items, n)
-        number_items [items[n - 1]] + items.reject_at(n - 1)
+        starred_group = starred_group(items.reject_at(n - 1))
+        numbered_group = numbered_group(items.reject_at(n - 1))
+        array = [items[n - 1]]
+        number_items(array + numbered_group) + starred_group
       end
     end
   end

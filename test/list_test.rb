@@ -63,5 +63,7 @@ class ListTest < MiniTest::Unit::TestCase
                  Posto::List.top(["1. this is one", "2. this is another", "3. card molly"], 3))
     assert_equal(["1. this is another", "2. this is one", "3. card molly"],
                  Posto::List.top(["1. this is one", "2. this is another", "3. card molly"], 2))
+    assert_equal(["1. this is another", "2. this is one", "* card molly"],
+                 Posto::List.top(["1. this is one", "2. this is another", "* card molly"], 2))
   end
 end
