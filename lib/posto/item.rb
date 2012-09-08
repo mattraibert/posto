@@ -17,7 +17,13 @@ module Posto
       def compare_sorted_items(x, y)
         x = x.to_i
         y = y.to_i
-        return nil if (x == 0 or y == 0)
+        if x == 0 or y == 0
+          if x < 6 && y < 6
+            return nil
+          else
+            return 0
+          end
+        end
         x <=> y
       end
 

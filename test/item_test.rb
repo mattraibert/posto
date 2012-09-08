@@ -14,7 +14,9 @@ class ItemTest < MiniTest::Unit::TestCase
     assert_equal(0, Posto::Item.compare_sorted_items("1. lonliest number", "1. The Only One"))
     assert_equal(nil, Posto::Item.compare_sorted_items("* kleene", "* twinkle twinkle"))
     assert_equal(nil, Posto::Item.compare_sorted_items("* twinkle twinkle", "1. The Only One"))
-    assert_equal(nil, Posto::Item.compare_sorted_items("99. bottles", "* twinkle twinkle"))
+    assert_equal(nil, Posto::Item.compare_sorted_items("1. bottles", "* twinkle twinkle"))
+    assert_equal(0, Posto::Item.compare_sorted_items("6. bottles", "* twinkle twinkle"))
+    assert_equal(0, Posto::Item.compare_sorted_items("* bottles", "6. twinkle twinkle"))
   end
 
   def test_star
