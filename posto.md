@@ -1,11 +1,11 @@
 todo
 ----
 
-1. only sort new items against top 5 (3?)
-2. edit items
-3. add new items to top (?)
-4. truncate posto file
-5. option to commit with item as msg from 'posto done'
+1. option to commit with item as msg from 'posto done'
+2. add new items to top (?)
+3. only sort new items against top 5 (3?)
+4. edit items
+5. truncate posto file
 6. quick command without args should list quick items
 7. add tasks to an item
 8. sync list to trello
