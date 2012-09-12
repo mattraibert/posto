@@ -55,6 +55,10 @@ module Posto
       item
     end
 
+    def commit(items)
+      @file.commit(done(items))
+    end
+
     def lookup_item(items, n)
       Posto::Item.hide_markdown(items[n - 1])
     end

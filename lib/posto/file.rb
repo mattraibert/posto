@@ -10,6 +10,11 @@ module Posto
       IO.write(@filename, Template.todo_list(items))
     end
 
+    def commit(msg)
+      `git add #{@filename}`
+      `git commit -m "#{msg}"`
+    end
+
     def lines
       IO.read(@filename).split("\n")
     end
