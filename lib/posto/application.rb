@@ -21,20 +21,16 @@ module Posto
       list @list.sort(items)
     end
 
-    def unsort(items, n = 1)
-      list @list.unsort(items, n.to_i)
-    end
-
     def resort(items)
       list @list.resort(items)
     end
 
-    def done(items, n = 1)
-      list @list.done(items, n.to_i)
+    def unsort(items, n = 1)
+      list @list.unsort(items, n.to_i)
     end
 
-    def add(items, item)
-      list @list.add(items, item)
+    def done(items, n = 1)
+      list @list.done(items, n.to_i)
     end
 
     def top(items, n = 1)
@@ -43,6 +39,10 @@ module Posto
 
     def quick(items, n = 1)
       list @list.quick(items, n.to_i)
+    end
+
+    def add(items, item)
+      list @list.add(items, item)
     end
 
     def method_missing(symbol, *args)
