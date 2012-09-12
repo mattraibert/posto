@@ -60,7 +60,7 @@ module Posto
     end
 
     def lookup_item(items, n)
-      Posto::Item.hide_markdown(items[n - 1])
+      Posto::Item.hide_markdown(items[n.to_i - 1])
     end
 
     def method_missing(symbol, *args)
