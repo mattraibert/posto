@@ -51,8 +51,8 @@ module Posto
       item
     end
 
-    def commit(items)
-      @file.commit(done(items))
+    def commit(items, n = 1)
+      @file.commit(done(items, n))
     end
 
     def lookup_item(items, n)
