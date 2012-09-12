@@ -11,12 +11,20 @@ module Posto
     end
 
     def commit(msg)
-      `git add #{@filename}`
+      `git add #@filename`
       `git commit -m "#{msg}"`
     end
 
+    def touch
+      `touch #@filename`
+    end
+
     def lines
-      IO.read(@filename).split("\n")
+      if ::File.exists? @filename
+        IO.read(@filename).split("\n")
+      else
+        []
+      end
     end
   end
 end
