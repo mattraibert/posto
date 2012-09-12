@@ -7,8 +7,7 @@ module Posto
     end
 
     def write(items)
-      todo_list = Template.todo_list(items)
-      IO.write(@filename, todo_list)
+      IO.write(@filename, Template.todo_list(items))
     end
 
     def lines
