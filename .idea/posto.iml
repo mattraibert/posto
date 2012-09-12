@@ -10,7 +10,7 @@
     <orderEntry type="library" scope="PROVIDED" name="activesupport (v3.2.8, RVM: ruby-1.9.3-p194 [posto]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="ansi (v1.4.3, RVM: ruby-1.9.3-p194 [posto]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="builder (v3.0.0, RVM: ruby-1.9.3-p194 [posto]) [gem]" level="application" />
-    <orderEntry type="library" scope="PROVIDED" name="bundler (v1.1.4, RVM: ruby-1.9.3-p194 [posto]) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="bundler (v1.2.0, RVM: ruby-1.9.3-p194 [posto]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="grasshopper (v0.4.2, RVM: ruby-1.9.3-p194 [posto]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="hashie (v1.2.0, RVM: ruby-1.9.3-p194 [posto]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="highline (v1.6.14, RVM: ruby-1.9.3-p194 [posto]) [gem]" level="application" />
