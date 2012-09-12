@@ -10,6 +10,10 @@ module Posto
       @file = Posto::File.new(@arguments.filename)
     end
 
+    def list(items)
+      print_all items
+    end
+
     def run(items)
       send(@arguments.command, items, *@arguments.params)
     end
@@ -23,25 +27,27 @@ module Posto
     end
 
     def unsort(items, n = 1)
-      items = @list_utility.unsort(items, n.to_i)
-      @io.puts items.last
-      @file.write items
+      print_item(items, n)
+      @file.write @list_utility.unsort(items, n.to_i)
     end
 
     def done(items, n = 1)
-      @io.print items[n - 1]
+      print_item(items, n)
       @file.write @list_utility.done(items, n.to_i)
     end
 
     def top(items, n = nil)
-      return @io.print items.first unless n
-      @io.print items[n - 1]
-      @file.write @list_utility.top(items, n.to_i)
+      if n.nil?
+        print_item(items)
+      else
+        print_item(items, n)
+        @file.write @list_utility.top(items, n.to_i)
+      end
     end
 
     def quick(items, n = 1)
       items = @list_utility.quick(items, n.to_i)
-      @io.puts items
+      print_all(items)
       @file.write items
     end
 
@@ -53,6 +59,14 @@ module Posto
 
     def method_missing(symbol, *args)
       STDERR.puts "Unsupported operation '#{symbol} #{args.join " "}'"
+    end
+
+    def print_item(items, n = 1)
+      @io.puts Posto::Item.hide_markdown(items[n - 1])
+    end
+
+    def print_all(items)
+      @io.puts items
     end
   end
 end
