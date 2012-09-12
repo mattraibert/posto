@@ -8,10 +8,8 @@ module Posto
   class << self
     def main(args)
       arguments = Arguments.new(args)
-      file = File.new(arguments.filename)
-      items = List.choose_item_lines(file.lines)
-      result = Application.new(arguments).run(items)
-      file.write(result)
+      items = List.choose_item_lines(File.new(arguments.filename).lines)
+      Application.new(arguments).run(items)
     end
   end
 end
