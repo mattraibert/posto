@@ -36,13 +36,9 @@ module Posto
       lookup_item(items, n)
     end
 
-    def top(items, n = nil)
-      if n.nil?
-        lookup_item(items, 1)
-      else
-        @file.write @list_utility.top(items, n.to_i)
-        lookup_item(items, n)
-      end
+    def top(items, n = 1)
+      @file.write @list_utility.top(items, n.to_i)
+      lookup_item(items, n)
     end
 
     def quick(items, n = 1)
