@@ -6,8 +6,8 @@ module Posto
       @filename = filename
     end
 
-    def write(items)
-      IO.write(@filename, Template.todo_list(items))
+    def write(todos)
+      IO.write(@filename, Template.todo_list(todos))
     end
 
     def commit(msg)

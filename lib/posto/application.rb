@@ -10,58 +10,58 @@ module Posto
       @file = Posto::File.new(@arguments.filename)
     end
 
-    def list(items)
-      items
+    def list(todos)
+      todos
     end
 
-    def run(items)
-      @io.puts send(@arguments.command, items, *@arguments.params)
+    def run(todos)
+      @io.puts send(@arguments.command, todos, *@arguments.params)
     end
 
-    def sort(items)
-      @file.write @list_utility.sort(items)
+    def sort(todos)
+      @file.write @list_utility.sort(todos)
     end
 
-    def resort(items)
-      @file.write @list_utility.resort(items)
+    def resort(todos)
+      @file.write @list_utility.resort(todos)
     end
 
-    def unsort(items, n = 1)
-      @file.write @list_utility.unsort(items, n.to_i)
-      lookup_item(items, n)
+    def unsort(todos, n = 1)
+      @file.write @list_utility.unsort(todos, n.to_i)
+      lookup_todo(todos, n)
     end
 
-    def done(items, n = 1)
-      @file.write @list_utility.done(items, n.to_i)
-      lookup_item(items, n)
+    def done(todos, n = 1)
+      @file.write @list_utility.done(todos, n.to_i)
+      lookup_todo(todos, n)
     end
 
-    def top(items, n = 1)
-      @file.write @list_utility.top(items, n.to_i)
-      lookup_item(items, n)
+    def top(todos, n = 1)
+      @file.write @list_utility.top(todos, n.to_i)
+      lookup_todo(todos, n)
     end
 
-    def quick(items, n = 1)
-      @file.write @list_utility.quick(items, n.to_i)
-      lookup_item(items, n)
+    def quick(todos, n = 1)
+      @file.write @list_utility.quick(todos, n.to_i)
+      lookup_todo(todos, n)
     end
 
-    def add(items, item)
-      @file.write @list_utility.add(items, item)
-      item
+    def add(todos, todo)
+      @file.write @list_utility.add(todos, todo)
+      todo
     end
 
-    def commit(items, n = 1)
-      @file.commit(done(items, n))
+    def commit(todos, n = 1)
+      @file.commit(done(todos, n))
     end
 
-    def init(items)
+    def init(todos)
       @file.touch
       nil
     end
 
-    def lookup_item(items, n)
-      Posto::Item.hide_markdown(items[n.to_i - 1])
+    def lookup_todo(todos, n)
+      Posto::Todo.hide_markdown(todos[n.to_i - 1])
     end
 
     def method_missing(symbol, *args)

@@ -4,12 +4,12 @@ require 'posto/list'
 class ListTest < MiniTest::Unit::TestCase
   def test_replace_stars
     assert_equal(["1. this is one", "2. this is another", "3. card molly"],
-                 Posto::List.number_items(["* this is one", "* this is another", "99. card molly"]))
+                 Posto::List.number_todos(["* this is one", "* this is another", "99. card molly"]))
   end
 
-  def test_choose_item_lines
-    assert_equal(["99. bottles", "* unsorted item"],
-                 Posto::List.choose_item_lines(["TODO", "======", "99. bottles", "* unsorted item", "END", ""]))
+  def test_choose_todo_lines
+    assert_equal(["99. bottles", "* unsorted todo"],
+                 Posto::List.choose_todo_lines(["TODO", "======", "99. bottles", "* unsorted todo", "END", ""]))
   end
 
   def test_starred_group

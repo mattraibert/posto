@@ -1,7 +1,7 @@
 module Posto
   module Template
-    def self.todo_list(items)
-      "todo\n----\n\n#{items.join("\n")}\n"
+    def self.todo_list(todos)
+      "todo\n----\n\n#{todos.join("\n")}\n"
     end
 
     def self.human_comparison(x, y)

@@ -4,52 +4,52 @@ require 'posto/monkeypatch_array'
 module Posto
   class List
     class << self
-      def number_items(items)
-        items.each_with_index.map { |item, i| Item.number(item, i + 1) }
+      def number_todos(todos)
+        todos.each_with_index.map { |todo, i| Todo.number(todo, i + 1) }
       end
 
-      def choose_item_lines(lines)
-        lines.select { |line| Item.item?(line) }
+      def choose_todo_lines(lines)
+        lines.select { |line| Todo.todo?(line) }
       end
 
-      def sort(items)
-        number_items(items.sort { |x, y| Item.compare_sorted_items(x, y) or Item.ask_human_to_compare(x, y) })
+      def sort(todos)
+        number_todos(todos.sort { |x, y| Todo.compare_sorted_todos(x, y) or Todo.ask_human_to_compare(x, y) })
       end
 
-      def starred_group(items)
-        items.select { |item| Item.starred?(item) }
+      def starred_group(todos)
+        todos.select { |todo| Todo.starred?(todo) }
       end
 
-      def numbered_group(items)
-        sort items.select { |item| Item.numbered?(item) }
+      def numbered_group(todos)
+        sort todos.select { |todo| Todo.numbered?(todo) }
       end
 
-      def done(items, n)
-        unsort(items, n)[0..-2]
+      def done(todos, n)
+        unsort(todos, n)[0..-2]
       end
 
-      def unsort(items, n)
-        numbered_group(items.reject_at(n - 1)) + starred_group(items.reject_at(n - 1)) + [Item.star(items[n - 1])]
+      def unsort(todos, n)
+        numbered_group(todos.reject_at(n - 1)) + starred_group(todos.reject_at(n - 1)) + [Todo.star(todos[n - 1])]
       end
 
-      def resort(items)
-        sort items.map { |item| Item.star(item) }
+      def resort(todos)
+        sort todos.map { |todo| Todo.star(todo) }
       end
 
-      def add(items, item)
-        items + [Item.create(item)]
+      def add(todos, todo)
+        todos + [Todo.create(todo)]
       end
 
-      def quick(items, n)
-        items[n -1] = Item.mark_quick(items[n - 1])
-        items
+      def quick(todos, n)
+        todos[n -1] = Todo.mark_quick(todos[n - 1])
+        todos
       end
 
-      def top(items, n)
-        starred_group = starred_group(items.reject_at(n - 1))
-        numbered_group = numbered_group(items.reject_at(n - 1))
-        array = [items[n - 1]]
-        number_items(array + numbered_group) + starred_group
+      def top(todos, n)
+        starred_group = starred_group(todos.reject_at(n - 1))
+        numbered_group = numbered_group(todos.reject_at(n - 1))
+        array = [todos[n - 1]]
+        number_todos(array + numbered_group) + starred_group
       end
     end
   end

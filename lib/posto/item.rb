@@ -1,9 +1,9 @@
 require 'posto/template'
 
 module Posto
-  class Item
+  class Todo
     class << self
-      MD_LIST_ITEM = /^(\*|\d+\.) /
+      MD_LIST_TODO = /^(\*|\d+\.) /
 
       def ask_human_to_compare(x, y)
         while true do
@@ -14,43 +14,43 @@ module Posto
         end
       end
 
-      def compare_sorted_items(x, y)
+      def compare_sorted_todos(x, y)
         x = x.to_i
         y = y.to_i
         return nil if (x == 0 or y == 0)
         x <=> y
       end
 
-      def hide_markdown(item)
-        item.sub(MD_LIST_ITEM, "")
+      def hide_markdown(todo)
+        todo.sub(MD_LIST_TODO, "")
       end
 
-      def star(item)
-        item.sub MD_LIST_ITEM, "* "
+      def star(todo)
+        todo.sub MD_LIST_TODO, "* "
       end
 
-      def number(item, n)
-        item.sub MD_LIST_ITEM, "#{n}. "
+      def number(todo, n)
+        todo.sub MD_LIST_TODO, "#{n}. "
       end
 
-      def item?(line)
-        MD_LIST_ITEM =~ line
+      def todo?(line)
+        MD_LIST_TODO =~ line
       end
 
-      def create(item)
-        item.sub(/^(\* )?/, "* ")
+      def create(todo)
+        todo.sub(/^(\* )?/, "* ")
       end
 
-      def mark_quick(item)
-        item.sub(/( \(quick\))?$/, " (quick)")
+      def mark_quick(todo)
+        todo.sub(/( \(quick\))?$/, " (quick)")
       end
 
-      def starred?(item)
-        /^\* / =~ item
+      def starred?(todo)
+        /^\* / =~ todo
       end
 
-      def numbered?(item)
-        /^\d+\. / =~ item
+      def numbered?(todo)
+        /^\d+\. / =~ todo
       end
     end
   end
