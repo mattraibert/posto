@@ -5,7 +5,7 @@ module Posto
   class List
     class << self
       def number_todos(todos)
-        todos.each_with_index.map { |todo, i| Todo.number(todo, i + 1) }
+        todos.each_with_index.map { |todo, i| Posto::Todo.number(todo, i + 1) }
       end
 
       def choose_todo_lines(lines)

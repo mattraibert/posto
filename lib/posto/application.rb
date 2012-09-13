@@ -28,22 +28,22 @@ module Posto
 
     def unsort(todos, n = 1)
       @file.write @list_utility.unsort(todos, n.to_i)
-      lookup_todo(todos, n)
+      lookup(todos, n)
     end
 
     def done(todos, n = 1)
       @file.write @list_utility.done(todos, n.to_i)
-      lookup_todo(todos, n)
+      lookup(todos, n)
     end
 
     def top(todos, n = 1)
       @file.write @list_utility.top(todos, n.to_i)
-      lookup_todo(todos, n)
+      lookup(todos, n)
     end
 
     def quick(todos, n = 1)
       @file.write @list_utility.quick(todos, n.to_i)
-      lookup_todo(todos, n)
+      lookup(todos, n)
     end
 
     def add(todos, todo)
@@ -60,7 +60,7 @@ module Posto
       nil
     end
 
-    def lookup_todo(todos, n)
+    def lookup(todos, n)
       Posto::Todo.hide_markdown(todos[n.to_i - 1])
     end
 
