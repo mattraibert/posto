@@ -1,5 +1,5 @@
 require 'test_helper'
-require 'posto/item'
+require 'posto/todo'
 
 class TodoTest < MiniTest::Unit::TestCase
   def test_hide_markdown

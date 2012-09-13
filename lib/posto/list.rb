@@ -1,4 +1,4 @@
-require 'posto/item'
+require 'posto/todo'
 require 'posto/monkeypatch_array'
 
 module Posto
