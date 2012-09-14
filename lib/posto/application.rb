@@ -70,5 +70,6 @@ module Posto
     end
 
     alias :delete :done
+    alias :do :top
   end
 end
