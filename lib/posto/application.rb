@@ -10,6 +10,7 @@ module Posto
       @file = Posto::File.new(@arguments.filename)
     end
 
+
     def list(todos)
       todos
     end
@@ -67,5 +68,7 @@ module Posto
     def method_missing(symbol, *args)
       STDERR.puts "Unsupported operation '#{symbol} #{args.join " "}'"
     end
+
+    alias :delete :done
   end
 end
