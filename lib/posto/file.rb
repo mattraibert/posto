@@ -1,4 +1,5 @@
 require 'posto/template'
+require 'posto/list'
 
 module Posto
   class File
@@ -21,7 +22,7 @@ module Posto
 
     def lines
       if ::File.exists? @filename
-        IO.read(@filename).split("\n")
+        List.choose_todo_lines(IO.read(@filename).split("\n"))
       else
         []
       end
