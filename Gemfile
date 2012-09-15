@@ -2,6 +2,7 @@ source :rubygems
 
 gem 'activesupport'
 gem 'highline'
+gem 'five_leaves'
 
 group :development do
   gem 'bundler'
