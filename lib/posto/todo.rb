@@ -1,18 +1,7 @@
-require 'posto/template'
-
 module Posto
   class Todo
     class << self
       MD_LIST_TODO = /^(\*|\d+\.) /
-
-      def ask_human_to_compare(x, y)
-        while true do
-          response = ask(Template.human_comparison(hide_markdown(x), hide_markdown(y))).to_i
-          return 0 if response == 0
-          return -1 if response == 1
-          return 1 if response == 2
-        end
-      end
 
       def compare_sorted_todos(x, y)
         x = x.to_i

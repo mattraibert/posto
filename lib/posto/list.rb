@@ -1,5 +1,6 @@
 require 'posto/todo'
 require 'posto/monkeypatch_array'
+require 'posto/human_comparison'
 
 module Posto
   class List
@@ -13,7 +14,7 @@ module Posto
       end
 
       def sort(todos)
-        number_todos(todos.sort { |x, y| Todo.compare_sorted_todos(x, y) or Todo.ask_human_to_compare(x, y) })
+        number_todos(todos.sort { |x, y| Todo.compare_sorted_todos(x, y) or HumanComparison.ask_human(x, y) })
       end
 
       def starred_group(todos)

@@ -1,4 +1,3 @@
-require 'posto/template'
 require 'posto/list'
 
 module Posto
@@ -8,7 +7,7 @@ module Posto
     end
 
     def write(todos)
-      IO.write(@filename, Template.todo_list(todos))
+      IO.write(@filename, template(todos))
     end
 
     def commit(msg)
@@ -26,6 +25,10 @@ module Posto
       else
         []
       end
+    end
+
+    def template(todos)
+      "todo\n----\n\n#{todos.join("\n")}\n"
     end
   end
 end
