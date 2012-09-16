@@ -19,7 +19,7 @@ module Posto
       `touch #@filename`
     end
 
-    def lines
+    def todos
       if ::File.exists? @filename
         List.choose_todo_lines(IO.read(@filename).split("\n"))
       else
