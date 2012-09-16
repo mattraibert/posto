@@ -1,7 +1,7 @@
 todo
 ----
 
-1. 'backlog' moves a todo to backlog.md file
+1. 'backlog' moves a todo to backlog
 2. write new tests for application.rb
 3. only sort new todos against top 5 (3?)
 4. 'bump' command to push todo priority by one
