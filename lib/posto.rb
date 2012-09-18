@@ -7,7 +7,8 @@ require 'posto/list'
 module Posto
   class << self
     def main(args)
-      Application.new(Arguments.new(args)).run
+      todos = Posto::File.new(arguments.filename)
+      Application.new(Arguments.new(args), todos).run
     end
   end
 end

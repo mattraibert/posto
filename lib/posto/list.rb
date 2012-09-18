@@ -55,6 +55,10 @@ module Posto
         number_todos(array + numbered_group) + starred_group
       end
       alias :do :top
+
+      def lookup(n)
+        Posto::Todo.hide_markdown(todos[n.to_i - 1])
+      end
     end
   end
 end

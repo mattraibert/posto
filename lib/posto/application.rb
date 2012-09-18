@@ -3,14 +3,15 @@ require 'posto/file'
 
 module Posto
   class Application
-    attr_reader :todos
+    attr_accessor :todos, :io, :file
     alias :list :todos
-    def initialize(arguments)
+
+    def initialize(arguments, todos, options = {})
+      @io = options[:io] || STDOUT
+      @list_utility = options[:list_utility] || List
+      @file = options[:file] || Posto::File.new(arguments.filename)
       @arguments = arguments
-      @list_utility = List
-      @io = STDOUT
-      @file = Posto::File.new(@arguments.filename)
-      @todos = @file.todos
+      @todos = todos
     end
 
     def run
@@ -19,14 +20,14 @@ module Posto
 
     [:sort, :resort].each do |method|
       define_method method do
-        @file.write @list_utility.send(method, todos)
+        @file.write(@list_utility.send(method, todos))
       end
     end
 
     [:unsort, :done, :delete, :do, :top, :quick].each do |method|
       define_method method do |n = 1|
         @file.write @list_utility.send(method, todos, n.to_i)
-        lookup(n)
+        @list_utility.lookup(n)
       end
     end
 
@@ -42,10 +43,6 @@ module Posto
     def init
       @file.touch
       nil
-    end
-
-    def lookup(n)
-      Posto::Todo.hide_markdown(todos[n.to_i - 1])
     end
 
     def method_missing(symbol, *args)
