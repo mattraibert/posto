@@ -17,3 +17,4 @@ todo
 14. human sort can type a unique prefix instead of a number
 15. display cl help message
 16. interactive posto shell
+* 'start' pops top and commits 'adding [message]'
