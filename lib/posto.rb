@@ -8,7 +8,7 @@ module Posto
   class << self
     def main(args)
       arguments = Arguments.new(args)
-      todos = File.new(arguments.filename).lines
+      todos = File.new(arguments.filename).todos
       Application.new(arguments).run(todos)
     end
   end
