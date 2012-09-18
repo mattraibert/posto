@@ -8,6 +8,7 @@ group :development do
   gem 'bundler'
   gem 'grasshopper'
   gem 'rake'
+  gem 'pry'
 end
 
 group :test do
