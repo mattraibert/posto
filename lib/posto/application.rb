@@ -10,7 +10,6 @@ module Posto
       @file = Posto::File.new(@arguments.filename)
     end
 
-
     def list(todos)
       todos
     end
@@ -19,32 +18,17 @@ module Posto
       @io.puts send(@arguments.command, todos, *@arguments.params)
     end
 
-    def sort(todos)
-      @file.write @list_utility.sort(todos)
+    [:sort, :resort].each do |method|
+      define_method method do |todos|
+        @file.write @list_utility.send(method, todos)
+      end
     end
 
-    def resort(todos)
-      @file.write @list_utility.resort(todos)
-    end
-
-    def unsort(todos, n = 1)
-      @file.write @list_utility.unsort(todos, n.to_i)
-      lookup(todos, n)
-    end
-
-    def done(todos, n = 1)
-      @file.write @list_utility.done(todos, n.to_i)
-      lookup(todos, n)
-    end
-
-    def top(todos, n = 1)
-      @file.write @list_utility.top(todos, n.to_i)
-      lookup(todos, n)
-    end
-
-    def quick(todos, n = 1)
-      @file.write @list_utility.quick(todos, n.to_i)
-      lookup(todos, n)
+    [:unsort, :done, :delete, :do, :top, :quick].each do |method|
+      define_method method do |todos, n = 1|
+        @file.write @list_utility.send(method, todos, n.to_i)
+        lookup(todos, n)
+      end
     end
 
     def add(todos, todo)
@@ -66,10 +50,7 @@ module Posto
     end
 
     def method_missing(symbol, *args)
-      STDERR.puts "Unsupported operation '#{symbol} #{args.join " "}'"
+      STDERR.puts "Unsupported operation '#{symbol} #{args.join "\n"}'"
     end
-
-    alias :delete :done
-    alias :do :top
   end
 end

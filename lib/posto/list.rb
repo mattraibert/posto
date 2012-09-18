@@ -29,6 +29,7 @@ module Posto
       def done(todos, n)
         unsort(todos, n)[0..-2]
       end
+      alias :delete :done
 
       def unsort(todos, n)
         numbered_group(todos.reject_at(n - 1)) + starred_group(todos.reject_at(n - 1)) + [Todo.star(todos[n - 1])]
@@ -53,6 +54,7 @@ module Posto
         array = [todos[n - 1]]
         number_todos(array + numbered_group) + starred_group
       end
+      alias :do :top
     end
   end
 end
