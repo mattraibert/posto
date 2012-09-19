@@ -27,7 +27,7 @@ module Posto
     [:unsort, :done, :delete, :do, :top, :quick].each do |method|
       define_method method do |n = 1|
         @file.write @list_utility.send(method, todos, n.to_i)
-        @list_utility.lookup(n)
+        @list_utility.lookup(todos, n)
       end
     end
 
