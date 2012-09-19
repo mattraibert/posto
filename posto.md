@@ -9,6 +9,4 @@ todo
 6. brainstorm mode, where each line is a todo
 7. 'bump' command to push todo priority by one
 8. sync list to trello
-9. human sort can type a unique prefix instead of a number
-10. add tasks to a todo
-11. only sort new todos against top 5 (3?)
+9. only sort new todos against top 5 (3?)
