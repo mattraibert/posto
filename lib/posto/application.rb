@@ -32,8 +32,14 @@ module Posto
     end
 
     def add(todo)
-      @file.write @list_utility.add(todos, todo)
+      @file.write @todos = @list_utility.add(todos, todo)
       todo
+    end
+
+    def start(todo)
+      add(todo)
+      sort
+      @file.commit_alone("[posto] adding '#{todo}'")
     end
 
     def commit(n = 1)

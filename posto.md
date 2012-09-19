@@ -1,18 +1,17 @@
 todo
 ----
 
-1. 'start' pops top and commits 'adding [message]'
-2. only sort new todos against top 5 (3?)
-3. 'bump' command to push todo priority by one
-4. brainstorm mode, where each line is a todo
-5. add new todos to top (?)
-6. edit todos
-7. truncate posto file
-8. quick command without args should list quick todos
-9. add tasks to a todo
-10. sync list to trello
-11. mark todos old; don't show up by default
-12. mark due today
-13. human sort can type a unique prefix instead of a number
-14. display cl help message
-15. interactive posto shell
+1. only sort new todos against top 5 (3?)
+2. 'bump' command to push todo priority by one
+3. brainstorm mode, where each line is a todo
+4. add new todos to top (?)
+5. edit todos
+6. truncate posto file
+7. quick command without args should list quick todos
+8. add tasks to a todo
+9. sync list to trello
+10. mark todos old; don't show up by default
+11. mark due today
+12. human sort can type a unique prefix instead of a number
+13. display cl help message
+14. interactive posto shell

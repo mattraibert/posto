@@ -15,6 +15,10 @@ module Posto
       `git commit -m "#{msg}"`
     end
 
+    def commit_alone(msg)
+      `git commit -m "#{msg}" #@filename`
+    end
+
     def touch
       `touch #@filename`
     end
