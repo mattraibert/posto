@@ -8,5 +8,6 @@ todo
 5. git commit after each operation(?)
 6. brainstorm mode, where each line is a todo
 7. 'bump' command to push todo priority by one
-8. sync list to trello
-9. only sort new todos against top 5 (3?)
+8. replace 'quick' with 'tag'
+9. sync list to trello
+10. only sort new todos against top 5 (3?)
