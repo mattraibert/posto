@@ -1,10 +1,10 @@
 todo
 ----
 
-1. get rid of -f filename feature
-2. don't sort on 'start'
-3. convert to thor or boson
-4. display cl help message
+1. display cl help message
+2. get rid of -f filename feature
+3. don't sort on 'start'
+4. convert to thor or boson
 5. 'schedule' is an alias for 'start' (or replace it)
 6. 'oops' resets --soft most recent posto commit
 7. make a list of unuseful features to delete
