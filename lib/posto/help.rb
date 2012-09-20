@@ -47,7 +47,7 @@ module Posto
       end
 
       def format_command(command_alias)
-        ' ' * 3 + command_alias.ljust(15)
+        ' ' * 3 + command_alias.ljust(18)
       end
     end
   end

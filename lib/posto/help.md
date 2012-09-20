@@ -13,11 +13,11 @@
 
 `add '<todo>'`: add <todo> unsorted to the bottom of the todo list.
 
-`start '<todo>'`: add, sort and commit with a message based on <todo>.
+`schedule '<todo>'`: add and commit with a message based on <todo>.
 
 `done [n = 1]`, `delete [n]`: remove the nth todo from the list.
 
-`commit [n]`: remove the nth todo; commit with a message based on the todo.
+`commit [n = 1]`: remove the nth todo; commit with a relevant message.
 
 `do`, `top`: displays the top todo.
 
