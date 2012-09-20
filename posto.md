@@ -1,8 +1,8 @@
 todo
 ----
 
-1. display cl help message
-2. get rid of -f filename feature
+1. get rid of -f filename feature
+2. display cl help message
 3. don't sort on 'start'
 4. 'schedule' is an alias for 'start' (or replace it)
 5. 'start' should checkout, initial commit to a feature branch
