@@ -12,7 +12,7 @@ To add a task, `posto add "an example task"`
 
 To see current tasks, `posto`
 
-To see a full list of commands, click [here](https://github.com/mattraibert/posto/blob/master/lib/posto/help.md).
+To see a full list of commands, try `posto help` or click [here](https://github.com/mattraibert/posto/blob/master/lib/posto/help.md).
 
 ## Naming
 
