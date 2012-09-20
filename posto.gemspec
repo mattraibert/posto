@@ -2,7 +2,7 @@
 
 Gem::Specification.new do |gem|
   gem.name = 'posto'
-  gem.version = "0.3.4.SNAPSHOT"
+  gem.version = "0.3.4"
   gem.license = "GPLv3"
   gem.summary = "CLI to sort your todo list."
   gem.description = "Sort your todo list from the command line."
