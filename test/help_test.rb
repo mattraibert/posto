@@ -24,18 +24,20 @@ List Commands:
    list           display the todo list.
    todos          alias for 'list'
    [default]      alias for 'list'
-   sort           sort the unsorted todos by asking the user a series of questions about priorities.
-   resort         remove any existing sort order and then sort again (this can be time consuming).
+   sort           ask the user about priorities to sort todos.
+   resort         reset sort order and sort again (can be time consuming).
 
 Single Todo Commands:
-   add '<task>'   add <task> unsorted to the bottom of the todo list.
-   start '<task>' add, sort and commit with a message based on <task>.
-   done [n]       remove the nth todo from the list; n is the top todo by default.
-   delete [n]     alias for 'done [n]'
-   commit [n]     remove the nth todo and commit with a message based on the task description.
-   do [n]         displays the top todo; or, if n is provided, move the nth todo to the top.
+   add '<todo>'   add <todo> unsorted to the bottom of the todo list.
+   start '<todo>' add, sort and commit with a message based on <todo>.
+   done [n = 1]   remove the nth todo from the list.
+   delete [n]     alias for 'done [n = 1]'
+   commit [n]     remove the nth todo; commit with a message based on the todo.
+   do             displays the top todo.
+   top            alias for 'do'
+   do [n]         move the nth todo to the top.
    top [n]        alias for 'do [n]'
-   unsort [n]     unsort the nth todo and place it at the bottom; n is the top todo by default.
+   unsort [n]     unsort the nth todo and place it at the bottom.
 EOF
     assert_equal(help_text, Posto::Help.help_text)
   end

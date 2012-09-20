@@ -1,5 +1,6 @@
 require 'posto/list'
 require 'posto/file'
+require 'posto/help'
 
 module Posto
   class Application
@@ -12,6 +13,10 @@ module Posto
       @file = options[:file] || Posto::File.new(arguments.filename)
       @arguments = arguments
       @todos = todos
+    end
+
+    def help
+      @io.puts Posto::Help.help_text
     end
 
     def run

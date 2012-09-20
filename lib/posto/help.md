@@ -4,21 +4,23 @@
 
 `list`, `todos`, `[default]`: display the todo list.
 
-`sort`: sort the unsorted todos by asking the user a series of questions about priorities.
+`sort`: ask the user about priorities to sort todos.
 
-`resort`: remove any existing sort order and then sort again (this can be time consuming).
+`resort`: reset sort order and sort again (can be time consuming).
 
 
 ### Single Todo Commands
 
-`add '<task>'`: add <task> unsorted to the bottom of the todo list.
+`add '<todo>'`: add <todo> unsorted to the bottom of the todo list.
 
-`start '<task>'`: add, sort and commit with a message based on <task>.
+`start '<todo>'`: add, sort and commit with a message based on <todo>.
 
-`done [n]`, `delete [n]`: remove the nth todo from the list; n is the top todo by default.
+`done [n = 1]`, `delete [n]`: remove the nth todo from the list.
 
-`commit [n]`: remove the nth todo and commit with a message based on the task description.
+`commit [n]`: remove the nth todo; commit with a message based on the todo.
 
-`do [n]`, `top [n]`: displays the top todo; or, if n is provided, move the nth todo to the top.
+`do`, `top`: displays the top todo.
 
-`unsort [n]`: unsort the nth todo and place it at the bottom; n is the top todo by default.
+`do [n]`, `top [n]`: move the nth todo to the top.
+
+`unsort [n]`: unsort the nth todo and place it at the bottom.
