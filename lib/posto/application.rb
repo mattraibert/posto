@@ -51,6 +51,10 @@ module Posto
       @file.commit("[posto] finished '#{done(n)}'")
     end
 
+    def oops
+      @file.oops
+    end
+
     def init
       @file.touch
       nil
