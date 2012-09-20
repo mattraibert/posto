@@ -24,3 +24,5 @@
 `do [n]`, `top [n]`: move the nth todo to the top.
 
 `unsort [n]`: unsort the nth todo and place it at the bottom.
+
+`oops`: if HEAD is a posto commit, reset --soft HEAD^.

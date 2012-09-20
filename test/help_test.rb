@@ -38,6 +38,7 @@ Single Todo Commands:
    do [n]            move the nth todo to the top.
    top [n]           alias for 'do [n]'
    unsort [n]        unsort the nth todo and place it at the bottom.
+   oops              if HEAD is a posto commit, reset --soft HEAD^.
 EOF
     assert_equal(help_text, Posto::Help.help_text)
   end
