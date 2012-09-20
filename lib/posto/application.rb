@@ -43,7 +43,6 @@ module Posto
 
     def start(todo)
       add(todo)
-      sort
       @file.commit_alone("[posto] scheduled '#{todo}'")
     end
 
