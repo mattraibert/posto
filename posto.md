@@ -11,3 +11,9 @@ todo
 8. sync list to trello
 9. only sort new todos against top 5 (3?)
 * fix empty todo file bug
+* init should commit saying 'begin using posto'
+* get rid of 'done' and 'add'
+* unsort should commit saying 'backlogged'
+* rename 'commit' to 'finish'
+* 'commit/finish' should merge feature branch into master and cleanup
+* 'sort/resort' should commit something helpful
