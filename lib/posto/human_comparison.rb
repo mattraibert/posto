@@ -1,4 +1,5 @@
 require 'posto/todo'
+require 'highline/import'
 
 module Posto
   class HumanComparison

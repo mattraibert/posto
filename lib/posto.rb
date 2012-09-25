@@ -1,4 +1,3 @@
-require 'highline/import'
 require 'posto/arguments'
 require 'posto/application'
 require 'posto/file'
