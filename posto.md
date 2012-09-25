@@ -11,3 +11,4 @@ todo
 8. sync list to trello
 9. only sort new todos against top 5 (3?)
 * fix empty todo file bug
+* allow partial sort/quit in the middle

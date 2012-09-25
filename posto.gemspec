@@ -15,4 +15,9 @@ Gem::Specification.new do |gem|
   gem.test_files = Dir["test/**/*"]
   gem.add_dependency('activesupport')
   gem.add_dependency('highline')
+  gem.add_dependency('five_leaves')
+  gem.add_development_dependency('bundler')
+  gem.add_development_dependency('grasshopper')
+  gem.add_development_dependency('rake')
+  gem.add_development_dependency('pry')
 end
