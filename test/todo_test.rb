@@ -26,4 +26,34 @@ class TodoTest < MiniTest::Unit::TestCase
     assert_equal "99. bottles", Posto::Todo.number("* bottles", 99)
     assert_equal "99. cents", Posto::Todo.number("50. cents", 99)
   end
+
+  def test_todo?
+    assert Posto::Todo.todo?("* bottles")
+    assert Posto::Todo.todo?("50. cents")
+    assert !Posto::Todo.todo?("todo")
+    assert !Posto::Todo.todo?("----")
+  end
+
+  def test_numbered?()
+    assert !Posto::Todo.numbered?("* bottles")
+    assert Posto::Todo.numbered?("50. cents")
+    assert !Posto::Todo.numbered?("todo")
+    assert !Posto::Todo.numbered?("----")
+  end
+
+  def test_starred?
+    assert Posto::Todo.starred?("* bottles")
+    assert !Posto::Todo.starred?("50. cents")
+    assert !Posto::Todo.starred?("todo")
+    assert !Posto::Todo.starred?("----")
+  end
+
+  def test_mark_quick
+    assert_equal "* bottles (quick)", Posto::Todo.mark_quick("* bottles")
+    assert_equal "50. cents (quick)", Posto::Todo.mark_quick("50. cents")
+  end
+
+  def test_create
+    assert_equal "* bottles", Posto::Todo.create("bottles")
+  end
 end
