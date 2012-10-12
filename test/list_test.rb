@@ -8,11 +8,9 @@ class ListTest < MiniTest::Unit::TestCase
   end
 
   def test_choose_todo_lines
+    assert_equal([],Posto::List.choose_todo_lines([]))
     assert_equal(["99. bottles", "* unsorted todo"],
                  Posto::List.choose_todo_lines(["TODO", "----", "99. bottles", "* unsorted todo", ""]))
-    assert_equal(["99. bottles", "* unsorted todo"],
-                 Posto::List.choose_todo_lines(["TODO", "----", "99. bottles", "* unsorted todo", "",
-                                                "backlog", "-------","","* nada", "* none"]))
   end
 
   def test_starred_group

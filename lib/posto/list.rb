@@ -10,8 +10,7 @@ module Posto
       end
 
       def choose_todo_lines(lines)
-        todos, backlog = lines.slice_before(/^backlog$/).to_a
-        todos.select { |todo| Todo.todo?(todo) }
+        lines.select { |todo| Todo.todo?(todo) }
       end
 
       def sort(todos)
