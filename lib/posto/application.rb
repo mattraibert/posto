@@ -43,12 +43,12 @@ module Posto
 
     def start(todo)
       add(todo)
-      @file.commit_alone("[posto] scheduled '#{todo}'")
+      @file.commit_alone("scheduled '#{todo}'")
     end
     alias :schedule :start
 
     def commit(n = 1)
-      @file.commit("[posto] finished '#{done(n)}'")
+      @file.commit("#{done(n)}")
     end
 
     def oops
