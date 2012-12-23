@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    posto (0.4.0.SNAPSHOT)
+    posto (0.4.0)
       activesupport
       five_leaves
       highline
