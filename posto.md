@@ -1,9 +1,8 @@
 todo
 ----
 
-1. oops always works (even for non posto commits)
-2. add without quotation marks
-3. make a list of unuseful features to delete
+1. add without quotation marks
+2. make a list of unuseful features to delete
 * 'bump' command to push todo priority by one
 * replace 'quick' with 'tag'
 * sync list to trello
