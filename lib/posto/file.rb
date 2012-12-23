@@ -20,12 +20,7 @@ module Posto
     end
 
     def oops
-      commit_msg = `git log --pretty=format:'%s' -n 1`
-      if /^\[posto\]/ =~ commit_msg
-        `git reset --soft HEAD^`
-      else
-        "last commit was not made by posto: #{commit_msg}"
-      end
+      `git reset --soft HEAD^`
     end
 
     def touch

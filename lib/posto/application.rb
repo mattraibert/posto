@@ -52,7 +52,10 @@ module Posto
     end
 
     def oops
+      add(`git log -1 --pretty=%B`.strip)
+      @file.write @todos = @list_utility.do_bottom(todos)
       @file.oops
+      @list_utility.lookup(todos, 1)
     end
 
     def init

@@ -55,6 +55,10 @@ module Posto
       end
       alias :do :top
 
+      def do_bottom(todos)
+        top(todos, todos.size)
+      end
+
       def lookup(todos, n)
         Posto::Todo.hide_markdown(todos[n.to_i - 1])
       end
