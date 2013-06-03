@@ -11,11 +11,13 @@
       <env name="JRUBY_OPTS" value="-X+O" />
     </envs>
     <EXTENSION ID="BundlerRunConfigurationExtension" bundleExecEnabled="true" />
+    <EXTENSION ID="JRubyRunConfigurationExtension" />
     <EXTENSION ID="RubyCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" track_test_folders="true" runner="rcov">
       <COVERAGE_PATTERN ENABLED="true">
         <PATTERN REGEXPS="/.rvm/" INCLUDED="false" />
       </COVERAGE_PATTERN>
     </EXTENSION>
+    <EXTENSION ID="org.jetbrains.plugins.ruby.motion.run.MotionSimulatorRunExtension" />
     <RTEST_RUN_CONFIG_SETTINGS_ID NAME="TESTS_FOLDER_PATH" VALUE="$PROJECT_DIR$" />
     <RTEST_RUN_CONFIG_SETTINGS_ID NAME="TEST_SCRIPT_PATH" VALUE="" />
     <RTEST_RUN_CONFIG_SETTINGS_ID NAME="TEST_FILE_MASK" VALUE="**/{*_test,test_*}.rb" />
