@@ -1,3 +1,10 @@
 class TodoList
-  # To change this template use File | Settings | File Templates.
+  def add(todo)
+    @todos ||= []
+    @todos << "* #{@todos.size + 1}. #{todo}"
+  end
+
+  def list
+    @todos
+  end
 end
