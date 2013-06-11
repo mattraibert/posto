@@ -28,6 +28,12 @@ class TodoListTest < MiniTest::Unit::TestCase
     assert_includes(@my_todo_list.list, "* 1. better do this")
   end
 
+  def test_top
+    @my_todo_list.add("and this")
+    @my_todo_list.top(2)
+    assert_equal(@my_todo_list.list, ["* 1. and this", "* 2. better do this"])
+  end
+  
   def test_save
     @my_todo_list.save
 
