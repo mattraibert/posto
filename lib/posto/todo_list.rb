@@ -8,8 +8,8 @@ class TodoList
     @todos << "* #{@todos.size + 1}. #{todo}"
   end
   
-  def done
-    @todos.delete_at 0
+  def done(n = 0)
+    @todos.delete_at n
     @todos.each_with_index {|todo, i| todo.gsub!(/.*?\./, "* #{i + 1}.")}
   end
 

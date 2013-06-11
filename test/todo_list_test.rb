@@ -21,6 +21,13 @@ class TodoListTest < MiniTest::Unit::TestCase
     assert_includes(@my_todo_list.list, "* 1. and this")
   end
 
+  def test_done_with_a_param
+    @my_todo_list.add("and this")
+    @my_todo_list.done(2)
+    refute_includes(@my_todo_list.list, "* 1. and this")
+    assert_includes(@my_todo_list.list, "* 1. better do this")
+  end
+
   def test_save
     @my_todo_list.save
 
