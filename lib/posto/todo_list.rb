@@ -7,16 +7,16 @@ class TodoList
     @todos ||= []
     @todos << "* #{@todos.size + 1}. #{todo}"
   end
-  
+
   def top(n = 1)
-    top = @todos.delete_at n - 1
+    top    = @todos.delete_at n - 1
     @todos = [top] + @todos
-    @todos.each_with_index {|todo, i| todo.gsub!(/.*?\./, "* #{i + 1}.")}
+    renumber
   end
-  
+
   def done(n = 1)
     @todos.delete_at n - 1
-    @todos.each_with_index {|todo, i| todo.gsub!(/.*?\./, "* #{i + 1}.")}
+    renumber
   end
 
   def list
@@ -25,5 +25,12 @@ class TodoList
 
   def save
     IO.write(@filename, @todos.join("\n"))
+  end
+
+  private
+  def renumber
+    @todos.each_with_index do |todo, i|
+      todo.gsub!(/.*?\./, "* #{i + 1}.")
+    end
   end
 end
