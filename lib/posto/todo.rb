@@ -1,20 +1,20 @@
 class Todo
-  attr_accessor :todo, :i
+  attr_accessor :todo, :n
 
-  def initialize(i, todo)
+  def initialize(n, todo)
     @todo = todo
-    @i    = i
+    @n    = n
   end
 
-  def renumber(i)
-    @i = i
+  def renumber(n)
+    @n = n
   end
 
   def to_s
-    "* #{@i}. #{@todo}"
+    "* #{@n}. #{@todo}"
   end
 
   def ==(o)
-    i == o.i and todo == o.todo
+    n == o.n and todo == o.todo
   end
 end
