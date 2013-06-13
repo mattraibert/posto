@@ -10,28 +10,28 @@ class TodoListTest < MiniTest::Unit::TestCase
 
   def test_add
     @my_todo_list.add("and this")
-    assert_includes(@my_todo_list.list, "* 1. better do this")
-    assert_includes(@my_todo_list.list, "* 2. and this")
+    assert_includes(@my_todo_list.list, Todo.new(1, "better do this"))
+    assert_includes(@my_todo_list.list, Todo.new(2, "and this"))
   end
 
   def test_done
     @my_todo_list.add("and this")
     @my_todo_list.done
-    refute_includes(@my_todo_list.list, "* 1. better do this")
-    assert_includes(@my_todo_list.list, "* 1. and this")
+    refute_includes(@my_todo_list.list, Todo.new(1, "better do this"))
+    assert_includes(@my_todo_list.list, Todo.new(1, "and this"))
   end
 
   def test_done_with_a_param
     @my_todo_list.add("and this")
     @my_todo_list.done(2)
-    refute_includes(@my_todo_list.list, "* 1. and this")
-    assert_includes(@my_todo_list.list, "* 1. better do this")
+    refute_includes(@my_todo_list.list, Todo.new(1, "and this"))
+    assert_includes(@my_todo_list.list, Todo.new(1, "better do this"))
   end
 
   def test_top
     @my_todo_list.add("and this")
     @my_todo_list.top(2)
-    assert_equal(@my_todo_list.list, ["* 1. and this", "* 2. better do this"])
+    assert_equal(@my_todo_list.list, [Todo.new(1, "and this"), Todo.new(2, "better do this")])
   end
   
   def test_save

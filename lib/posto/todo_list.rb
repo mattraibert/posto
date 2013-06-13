@@ -1,3 +1,5 @@
+require 'posto/todo'
+
 class TodoList
   def initialize(filename = "posto.md")
     @filename = filename
@@ -5,7 +7,7 @@ class TodoList
 
   def add(todo)
     @todos ||= []
-    @todos << "* #{@todos.size + 1}. #{todo}"
+    @todos << Todo.new(@todos.size + 1, todo)
   end
 
   def top(n = 1)
@@ -30,7 +32,7 @@ class TodoList
   private
   def renumber
     @todos.each_with_index do |todo, i|
-      todo.gsub!(/.*?\./, "* #{i + 1}.")
+      todo.renumber i + 1
     end
   end
 end
