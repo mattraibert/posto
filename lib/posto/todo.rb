@@ -1,4 +1,5 @@
-class Todo
+class Todo 
+  include Comparable
   attr_accessor :todo, :n
 
   def initialize(n, todo)
@@ -14,6 +15,10 @@ class Todo
     "* #{@n}. #{@todo}"
   end
 
+  def <=>(o)
+    n <=> o.n
+  end
+  
   def ==(o)
     n == o.n and todo == o.todo
   end

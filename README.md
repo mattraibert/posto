@@ -26,3 +26,12 @@ Posto is named for [Del Posto](http://www.delposto.com/) in New York City -- a r
 
 Copyright (c) 2012 Matt Raibert.
 Posto is available under the GPL v3 see LICENSE.txt for further details.
+
+
+foo
+---
+
+* hi
+* another item
+* third item
+
